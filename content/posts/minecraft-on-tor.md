@@ -12,7 +12,7 @@ The Minecraft target has the advantages to:
 - Provide a private server that does not require to maintain code to work: Private servers only work once you have the private server code ready.
 - Allow juridically to deploy a private server: Minecraft provide server binaries. It is then absolutely legal to publish such server.
 - Still proprietary target to force the user to dissect the minecraft source code for future purpose: In the future we could write a private server based on p2p instead of TOR.
-
+- Tor can be relatively fast for a darknet. Could still be better for card game or less memory intensive games.
 
 # I / Deploy On A debian 12 Minecraft Server
 
@@ -80,4 +80,4 @@ You are now connected!
 
 ![image](/gogo-s-blog/minecraft-on-tor/result.png)
 
-Congratulation!
+Congratulation! You are now able to play minecraft on Tor darknet.
