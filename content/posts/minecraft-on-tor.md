@@ -74,10 +74,10 @@ taskset -a "$(minecraft-launcher)"
 
 Then connect to the server with the address `rde2ynhyv3vyov7rxgp5ko2brwib2jilae5cpviiwp3tyar6mqwq2yid.onion:4444`.
 
-![image](/gogo-s-blog/minecraft-on-tor/connect.png)
+![image](/putting-game-private-server-on-the-darknet/minecraft-on-tor/connect.png)
 
 You are now connected!
 
-![image](/gogo-s-blog/minecraft-on-tor/result.png)
+![image](/putting-game-private-server-on-the-darknet/minecraft-on-tor/result.png)
 
 Congratulation! You are now able to play minecraft on Tor darknet.
