@@ -1,4 +1,4 @@
-baseurl      = "https://gogo2464.github.io/cpe-gogo-s-blog"
+baseurl      = "https://gogo2464.github.io/gogo-s-blog-cpe"
 title        = "My Blog"
 languageCode = "en-us"
 theme        = "hello-4s3ti"
@@ -24,10 +24,10 @@ paginate     = 10
   keywords = "homepage, blog"
   images = [""]
 
-[taxonomies]
-    category = "blog"
-    tag      = "tags"
-    series   = "series"
+#[taxonomies]
+#    category = "blog"
+#    tag      = "tags"
+#    series   = "series"
 
 [languages]
   [languages.en]
