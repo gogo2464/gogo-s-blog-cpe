@@ -55,3 +55,9 @@ paginate     = 10
     identifier = "0toOverflow"
     name       = "0toOverflow"
     url        = "/from-0-to-buffer-overflow-by-projects"
+	
+  [[menu.main]]
+    identifier = "exploit-dev"
+    name       = "exploit-dev"
+    url        = "/exploit-dev"
+	
