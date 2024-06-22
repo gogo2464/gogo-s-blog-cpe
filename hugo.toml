@@ -51,7 +51,7 @@ paginate     = 10
     name       = "Blog"
     url        = "/posts"
 	
-  [[menu.other]]
+  [[menu.main]]
     identifier = "other"
     name       = "Other"
     url        = "/other"
