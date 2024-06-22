@@ -1,4 +1,4 @@
-baseurl      = "https://gogo2464.github.io/putting-game-private-server-on-the-darknet"
+baseurl      = "https://gogo2464.github.io/cpe-gogo-s-blog"
 title        = "My Blog"
 languageCode = "en-us"
 theme        = "hello-4s3ti"
@@ -47,11 +47,11 @@ paginate     = 10
 
   # And you can even create generic menu
   [[menu.main]]
-    identifier = "blog"
-    name       = "Blog"
-    url        = "/posts"
+    identifier = "putting-games-on-darknet"
+    name       = "Putting-games-on-darknet"
+    url        = "/putting-games-on-darknet"
 	
   [[menu.main]]
-    identifier = "other"
-    name       = "Other"
-    url        = "/other"
+    identifier = "0toOverflow"
+    name       = "0toOverflow"
+    url        = "/from-0-to-buffer-overflow-by-projects"
