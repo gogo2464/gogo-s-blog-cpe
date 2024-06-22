@@ -50,3 +50,8 @@ paginate     = 10
     identifier = "blog"
     name       = "Blog"
     url        = "/posts"
+	
+  [[menu.other]]
+    identifier = "other"
+    name       = "Other"
+    url        = "/other"
