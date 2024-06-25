@@ -11,7 +11,7 @@ paginate     = 10
   dateformNumTime = "2006-01-02 15:04"
 
   defaultTheme = "dark"
-  EnableThemeToggle = false
+  EnableThemeToggle = true
   EnableSharingButtons = true
   EnableGlobalLanguageMenu = true
   backgroundImage = "static/menu/hacker.png"
@@ -77,3 +77,7 @@ paginate     = 10
     name       = "exploit-dev"
     url        = "/exploit-dev"
 	
+  [[menu.main]]
+    identifier = "minecraft-speedrun"
+    name       = "minecraft-speedrun"
+    url        = "/minecraft-speedrun"
