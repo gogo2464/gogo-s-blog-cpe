@@ -10,7 +10,7 @@ paginate     = 10
   dateformNum     = "2006-01-02"
   dateformNumTime = "2006-01-02 15:04"
 
-  defaultTheme = "dark"
+  defaultTheme = ""
   EnableThemeToggle = true
   EnableSharingButtons = true
   EnableGlobalLanguageMenu = true
