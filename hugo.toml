@@ -5,12 +5,7 @@ theme        = "hello-4s3ti"
 paginate     = 10
 
 [params]
-  dateform        = "Jan 2, 2006"
-  dateformShort   = "Jan 2"
-  dateformNum     = "2006-01-02"
-  dateformNumTime = "2006-01-02 15:04"
-
-  defaultTheme = "light"
+  defaultTheme = "dark"
   EnableThemeToggle = true
   EnableSharingButtons = true
   EnableGlobalLanguageMenu = true
