@@ -1,12 +1,12 @@
 ---
 title: "find player location in minecraft from picture"
 date: 2024-06-17T12:37:42+02:00
-draft: true
+draft: false
 ---
 
 # 1 Project philosophy
 
-In some case, speedrunners could watch "secret" location from a specific seed on youtube video. In this case, they will need to find it to redo the speedrun method. In this tutorial, I will help you to find a speedrun location from a picture.
+In some case, speedrunners could watch a "secret" location from a specific seed on youtube video. In this case, they will need to find it to redo the speedrun method. In this tutorial, I will help you to find a speedrun location from a picture.
 
 This project is a geoint methodology (tutorial) to find the coordinate (x,y) from a picture. The project consist to:
 - 1: find the seed of the picture
