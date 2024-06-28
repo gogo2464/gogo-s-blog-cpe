@@ -8,6 +8,11 @@ draft: false
 
 In some case, speedrunners could watch a "secret" location from a specific seed on youtube video. In this case, they will need to find it to redo the speedrun method. In this tutorial, I will help you to find a speedrun location from a picture.
 
+The target I will use will be the next below.
+
+[!image](/minecraft-speedrun/trees.webp)
+
+
 This project is a geoint methodology (tutorial) to find the coordinate (x,y) from a picture. The project consist to:
 - 1: find the seed of the picture
 - 2: find coordinate from picture on the seed
