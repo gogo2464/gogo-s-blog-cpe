@@ -10,7 +10,7 @@ In some case, speedrunners could watch a "secret" location from a specific seed 
 
 The target I will use will be the next below.
 
-[!image](/minecraft-speedrun/trees.webp)
+![image](/minecraft-speedrun/trees.webp)
 
 
 This project is a geoint methodology (tutorial) to find the coordinate (x,y) from a picture. The project consist to:
