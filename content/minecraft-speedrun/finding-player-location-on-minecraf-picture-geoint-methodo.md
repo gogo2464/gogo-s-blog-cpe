@@ -19,9 +19,9 @@ This project is a geoint methodology (tutorial) to find the coordinate (x,y) fro
 
 In this tutorial we will use math principles of triangulation (we use a compass on a map get the intersection of 2 points of a specific distance) and trigonometry (math on rectangle triangles).
 
-This method has the disadvantage from "texture rotation"* to:
-- be more complicated and more manual than minecraft specific methods because there is no tool to do that automatically.
-- require some reverse engineering to have a map of the game. See [radare hack](https://gamehacking.academy/pages/5/08/).
+This method has the disadvantage from "texture rotation" to:
+- 1: be more complicated and more manual than minecraft specific methods because there is no tool to do that automatically.
+- 2: require some reverse engineering to have a map of the game. See [radare hack](https://gamehacking.academy/pages/5/08/).
 
 But the geoint method to find coordinate from picture on the seed has the advantage to:
 - work on ANY video game. Very agnostic.
