@@ -24,7 +24,7 @@ This method has the disadvantage from "texture rotation" to:
 - 2: require some reverse engineering to have a map of the game. See [radare hack](https://gamehacking.academy/pages/5/08/).
 
 But the geoint method to find coordinate from picture on the seed has the advantage to:
-- work on ANY video game. Very agnostic.
+- 1: work on ANY video game. Very agnostic.
 
 
 So as the method is transposable to any other video game, fell free to run a radarehack and to reuse this method for the game you want.
