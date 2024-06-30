@@ -65,7 +65,7 @@ then the distance between player and right tree is `11 cubes * tan(70)` = `30.22
 
 or `11 / tan(20) = 30.22225161`. Same result is now verified.
 
-# chapter 2, locating left tree distance from player::
+# chapter 2, locating left tree distance from player.
 
 Second locate Player -> left tree distance:
 
