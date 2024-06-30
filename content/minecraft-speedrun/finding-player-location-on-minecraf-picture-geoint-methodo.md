@@ -44,33 +44,29 @@ Note: The texture rotation algorithm has changed a few times during the game's d
 Also note that while bedrock edition also uses texture rotations, they are different from Java, and aren't supported by the tool above.
 ```
 
-
 Let's start!
-
 
 # Chapter I: find the seed of the picture.
 
-
-
 # Chapter 2: locate the picture on the seed.
-
 
 I need to measure the distance between 2 trees in order to get the location of that player using triangulation. 
 
-#chapter 1, locating right tree distance from player:
+# chapter 1, locating right tree distance from player:
 
 First: locate Player -> trees right distance
 
 from the left picture I see:
--a tree (hopefully tall as it is minecraft) -> 90% angle to the top
--a distance to the top of the tree of 11cubes (I could use h = d * tan(0) but lazy because minecraft is cube and we can count manually)
--a know aqngle to the top (I count 11 cubes from bot to top of the tree thanks to the amazing minecraft structyre). as the plyer is located to the ground I can read that the angle ground <-> top is 20%
+- a tree (hopefully tall as it is minecraft) -> 90% angle to the top
+- a distance to the top of the tree of 11cubes (I could use h = d * tan(0) but lazy because minecraft is cube and we can count manually)
+- a know aqngle to the top (I count 11 cubes from bot to top of the tree thanks to the amazing minecraft structyre). as the plyer is located to the ground I can read that the angle ground <-> top is 20%
 
 then the distance between player and right tree is `11 cubes * tan(70)` = `30.22 cubes` of distance
 
-#chapter 2, locating left tree distance from player::
+or `11 / tan(20) = 30.22225161`. Same result is now verified.
+
+# chapter 2, locating left tree distance from player::
 
 Second locate Player -> left tree distance:
 
-
-#chapter 3, regroup distance between two trees and player to find where the picture has been taken.
+# chapter 3, regroup distance between two trees and player to find where the picture has been taken.
