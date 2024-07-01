@@ -44,9 +44,15 @@ Note: The texture rotation algorithm has changed a few times during the game's d
 Also note that while bedrock edition also uses texture rotations, they are different from Java, and aren't supported by the tool above.
 ```
 
+In order to guess the seed, I will use:
+
+![image](/gogo-s-blog-cpe/minecraft-speedrun/finding-player-location-on-minecraf-picture-geoint-methodo/forest.png)
+
 Let's start!
 
 # Chapter I: find the seed of the picture.
+
+About the infos I have, this seed is `1.20.1`.
 
 # Chapter 2: locate the picture on the seed.
 
