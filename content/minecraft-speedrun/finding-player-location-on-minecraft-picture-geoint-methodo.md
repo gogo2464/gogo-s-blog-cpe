@@ -145,7 +145,7 @@ Href = 128 cubes.
 ![image](/gogo-s-blog-cpe/minecraft-speedrun/finding-player-location-on-minecraf-picture-geoint-methodo/gimp-cloud.png)
 
 
-Then the pixel height of the reference object (here the cloud) is `284,2` pixels.
+Then the pixel height of the reference object (here the cloud) is `120` pixels.
 
 
 Pref = `120` pixels.
