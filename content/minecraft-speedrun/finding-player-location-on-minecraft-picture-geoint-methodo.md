@@ -139,15 +139,61 @@ Href = 128 cubes.
 
 # Chapter 1.3, find pixel height of the reference object (Pref):
 
-Pref = 
+- 1: download GIMP
+- 2: Open the image above with GIMP
+- 3: Select the measure tool and read `335,2` pixels (see below).
+![image](/gogo-s-blog-cpe/minecraft-speedrun/finding-player-location-on-minecraf-picture-geoint-methodo/gimp.png)
+
+
+Then the pixel height of the reference object (here the cloud) is `284,2` pixels.
+
+
+Pref = `284,2` pixels.
 
 # Chapter 1.4, find montain height (Pmountain):
 
+- 1: download GIMP
+- 2: Open the image above with GIMP
+- 3: Select the measure tool and read `133,8` pixels (see below).
+![image](/gogo-s-blog-cpe/minecraft-speedrun/finding-player-location-on-minecraf-picture-geoint-methodo/gimp-montain.png)
+
+Then the pixel height of the reference object (here the cloud) is `133,8` pixels.
+
+
+Pref = `133,8` pixels.
+
 # Chapter 1.5, find calculate ratio (Height Ratio):
+
+height ratio = Pmontain / Pref
+height ratio = `133,8` pixels / `284,2` pixels
+height ratio = `0,470` pixels
+
+`height ratio = 0,470 pixels`
+
+# Chapter 1.6, find montain height (Hmountain):
+
+Hmountain = Height Ratio * Href
+
+height montain = Hmountain
+height montain = 0,470 * 128
+height montain = 60,16 cubes
+
+`height montain = 60,16 cubes`
+
+
+# Chapter 2, finding left montain distance from player
+
+
 
 
 
 # Chapter 2, locating right montain distance from player:
+
+
+
+
+# Chapter 2, locating right montain distance from player:
+
 
 First: locate Player -> trees right distance
 
