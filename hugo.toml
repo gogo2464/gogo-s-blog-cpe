@@ -73,6 +73,6 @@ paginate     = 10
     url        = "/exploit-dev"
 	
   [[menu.main]]
-    identifier = "minecraft-speedrun"
-    name       = "minecraft-speedrun"
-    url        = "/minecraft-speedrun"
+    identifier = "game-hacking-for-speedrun"
+    name       = "game-hacking-for-speedrun"
+    url        = "/game-hacking-for-speedrun"

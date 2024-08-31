@@ -1,7 +1,7 @@
 ---
 title: "find player location in minecraft from picture"
 date: 2024-06-17T12:37:42+02:00
-draft: false
+draft: true
 ---
 
 # 1 Project philosophy
@@ -10,7 +10,7 @@ In some case, speedrunners could watch a "secret" location from a specific seed 
 
 The target I will use will be the next below.
 
-![image](/gogo-s-blog-cpe/minecraft-speedrun/finding-player-location-on-minecraf-picture-geoint-methodo/image.png)
+![image](/gogo-s-blog-cpe/game-hacking-for-speedrun/finding-player-location-on-minecraf-picture-geoint-methodo/image.png)
 
 
 This project is a geoint methodology (tutorial) to find the coordinate (x,y) from a picture. The project consist to:
@@ -142,7 +142,7 @@ Href = 128 cubes.
 - 1: download GIMP
 - 2: Open the image above with GIMP
 - 3: Select the measure tool and read `120` pixels (see below).
-![image](/gogo-s-blog-cpe/minecraft-speedrun/finding-player-location-on-minecraf-picture-geoint-methodo/gimp-cloud.png)
+![image](/gogo-s-blog-cpe/game-hacking-for-speedrun/finding-player-location-on-minecraf-picture-geoint-methodo/gimp-cloud.png)
 
 
 Then the pixel height of the reference object (here the cloud) is `120` pixels.
@@ -155,7 +155,7 @@ Pref = `120` pixels.
 - 1: download GIMP
 - 2: Open the image above with GIMP
 - 3: Select the measure tool and read `50` pixels (see below).
-![image](/gogo-s-blog-cpe/minecraft-speedrun/finding-player-location-on-minecraf-picture-geoint-methodo/gimp-montain.png)
+![image](/gogo-s-blog-cpe/game-hacking-for-speedrun/finding-player-location-on-minecraf-picture-geoint-methodo/gimp-montain.png)
 
 Then the pixel height of the reference object (here the cloud) is `50` pixels.
 
