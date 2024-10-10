@@ -43,18 +43,14 @@ paginate     = 10
 [languages]
   [languages.en]
     title = "Hello Friend NG"
-    subtitle = "A simple theme for Hugo"
-    keywords = ""
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
-    readOtherPosts = "Read other posts"
-
-    [languages.en.params.logo]
-      logoText = "crypto pwn elite (cpe) blog"
-      logoHomeLink = "/gogo-s-blog-cpe"
-    # or
-    #
-    # path = "/img/your-example-logo.svg"
-    # alt = "Your example logo alt text"
+    
+    [languages.en.params]
+	  keywords = ""
+	  readOtherPosts = "Read other posts"
+	  [languages.en.params.logo]
+        logoText = "crypto pwn elite (cpe) blog"
+        logoHomeLink = "/gogo-s-blog-cpe"
 
   # And you can even create generic menu
   [[menu.main]]
