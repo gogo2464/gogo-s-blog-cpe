@@ -51,35 +51,33 @@ paginate     = 10
     [languages.en.params.logo]
       logoText = "crypto pwn elite (cpe) blog"
       logoHomeLink = "/gogo-s-blog-cpe"
-    # or
-    #
-    # path = "/img/your-example-logo.svg"
-    # alt = "Your example logo alt text"
-
-  # And you can even create generic menu
   
   [[menu.main]]
     identifier = "0toOverflow"
     name       = "0toOverflow"
     url        = "/from-0-to-buffer-overflow-by-projects"
+	weight     = 1
 
   [[menu.main]]
-    identifier = "0-to-crypto"
-    name       = "0-to-crypto"
+    identifier = "0toCrypto"
+    name       = "0toCrypto"
     url        = "/from-0-to-crypto-by-projects"
-	
-  [[menu.main]]
-    identifier = "putting-games-on-darknet"
-    name       = "Putting-games-on-darknet"
-    url        = "/putting-games-on-darknet"
+	weight     = 2
 	
   [[menu.main]]
     identifier = "exploit-dev"
     name       = "exploit-dev"
     url        = "/exploit-dev"
+	weight     = 3
+	
+  [[menu.main]]
+    identifier = "putting-games-on-darknet"
+    name       = "Putting-games-on-darknet"
+    url        = "/putting-games-on-darknet"
+	weight     = 4
 	
   [[menu.main]]
     identifier = "game-hacking-for-speedrun"
     name       = "game-hacking-for-speedrun"
     url        = "/game-hacking-for-speedrun"
-	
+	weight     = 5

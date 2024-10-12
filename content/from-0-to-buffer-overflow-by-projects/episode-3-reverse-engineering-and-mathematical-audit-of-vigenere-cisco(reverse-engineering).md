@@ -1,6 +1,7 @@
 ---
-title: "Episode 1 exploitation of pokemon red and blue (no_dep no_aslr and no_canary and no_pie)"
+title: "Episode 3 exploitation of pokemon red and blue (no_dep no_aslr and no_canary and no_pie)"
 date: 2024-10-12T23:00:00+02:00
+weight: 3
 draft: false
 ---
 

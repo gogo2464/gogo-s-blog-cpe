@@ -1,6 +1,7 @@
 ---
 title: "Welcome"
 date: 2022-08-04T12:37:42+02:00
+weight: 1
 draft: false
 ---
 

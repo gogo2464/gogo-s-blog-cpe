@@ -1,3 +1,10 @@
+---
+title: "Episode 2: proof and logic, demonstration of disprooving vigenere cisco maths"
+date: 2024-10-13T1:25:30+02:00
+weight: 2
+draft: false
+---
+
 ## III - Reversing checksum, Méthod by mathematical proof: disproof
 
 ## 1 - Analyse sous forme de logique mathématique
@@ -46,4 +53,4 @@ h = \Sigma_{i=2}^{lp}
 ```
 .
 
-Nous disposons néanmoins de la preuve mathématique que l'algorithme est vulnérable.
+We now have the mathematical proof (demonstration) that the algorithm is vulnerable.
