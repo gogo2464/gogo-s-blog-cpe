@@ -7,7 +7,7 @@ draft: false
 
 ### reverse engineering/decompilation, mathematical analysis, and exploitation of Vigenere Cisco algorithm
 
-## Introduction and goals:
+## Identify:
 
 In this course we are going to learn what to do when we do not have the source code of a program but when we need to still read the source code in order to find vulnerabilities that the developpers have let.
 
@@ -34,16 +34,6 @@ sudo dpkg -i Packet_Tracer821_amd64_signed_ab5472da4e.deb
 $ which packettracer
 /usr/local/bin/packettracer
 ```
-
-
-In order to redo same commands as me you could also download it from my repository
-
-```
-wget https://github.com/gogo2464/packet-tracer-linux-8.2.1.0118-archive/releases/edit/untagged-4b7b9f96a74e3408a5b2
-cd packet-tracer-linux-8.2.1.0118-disassembly
-sudo apt-get install --reinstall libxcb-xinerama0 --yes
-```
-
 
 Find the file `PacketTracer` with: `ls /opt/pt/bin`.
 
@@ -94,6 +84,14 @@ Router#
 
 In any cisco router you could run as well. It fits with the output of the program.
 
+In order to redo same commands as me you could also download it from my repository
+
+```
+wget https://github.com/gogo2464/packet-tracer-linux-8.2.1.0118-archive/releases/download/packet-tracer-linux-8.2.1.0118/pt.tar
+tar -xvf pt.tar
+cd pt.tar
+cd pt
+```
 
 ### 2.1: static analysis: looking for symbols (exercice)
 

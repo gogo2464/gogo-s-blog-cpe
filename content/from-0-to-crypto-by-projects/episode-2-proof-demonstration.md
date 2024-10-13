@@ -1,15 +1,15 @@
 ---
-title: "Episode 2: proof and logic, demonstration by disprooving hashing algorithm"
+title: "Episode 2: Reversing cryptography algorithm made to be unreversables (checksum). Method by mathematical proof: disproof"
 date: 2024-10-13T1:25:30+02:00
 weight: 2
 draft: false
 ---
 
-## I - Reversing cryptography algorithm made to be unreversables (checksum). Method by mathematical proof: disproof
+## I - Identify
 
 According to the documentation and as it is mentionned that type 7 is an hashing algorithm.
 
-A secure hash algorithm is an hash algorithm so that there does not exist a function `$$ f(enc) $$` so that `$$ f(enc) = original_plaintext $$`. 
+A secure hash algorithm is an hash algorithm so that for any function hash that transform the original (plaintext) value $ hased = h(plain) $ there does not exist a function $ rev() $ so that $ rev(hashed) = plain $. 
 
 ## 1 - Analysis under mathematical thinking
 
