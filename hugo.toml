@@ -22,7 +22,7 @@ paginate     = 10
 
 
   # Subtitle for home
-  homeSubtitle = "The official CPE blog (from gogo) to expose common cyber security projects."
+  homeSubtitle = "The official CPE free educational by practice books on auditing cyber security issues. CPE: the Cryptography and PWN elites that will send you to the CPE!"
 
   # Set disableReadOtherPosts to true in order to hide the links to other posts.
   disableReadOtherPosts = false
