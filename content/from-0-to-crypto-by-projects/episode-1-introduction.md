@@ -10,9 +10,10 @@ draft: false
 In cryptography, there are mathematics but in a very different way than school. Not because it sounds more concreet at all. But because it is about to break theorems (disproof).
 
 
-- step 1: math demonstartion prooving: [book fo proof](https://www.people.vcu.edu/~rhammack/BookOfProof/Main.pdf) or the book: [how to proove it](https://www.amazon.com/How-Prove-Structured-Daniel-Velleman/dp/1108439535/ref=sr_1_1?crid=1G289WGWAXA57&keywords=how+to+prove+it&qid=1685799138&s=books&sprefix=how+to+prov%2Cstripbooks-intl-ship%2C864&sr=1-1) if you prefer. Be carefull: the second book is not free and corrections are only available by third party.
-- step 2: cryptographie défensive: 
-  - [math focused:](https://www.amazon.com/Introduction-Mathematical-Cryptography-Undergraduate-Mathematics/dp/1493939386)
+- step 1: math to proove theorems: 
+  - 1: [book fo proof](https://www.people.vcu.edu/~rhammack/BookOfProof/Main.pdf)
+  - 2: or the book: [how to proove it](https://www.amazon.com/How-Prove-Structured-Daniel-Velleman/dp/1108439535/ref=sr_1_1?crid=1G289WGWAXA57&keywords=how+to+prove+it&qid=1685799138&s=books&sprefix=how+to+prov%2Cstripbooks-intl-ship%2C864&sr=1-1) if you prefer. Be carefull: the second book is not free and corrections are only available by third party.
+- step 2: theorem prooving focusing on cryptology [math focused:](https://www.amazon.com/Introduction-Mathematical-Cryptography-Undergraduate-Mathematics/dp/1493939386)
 - step 3: [congrat!!! because you are now able to read papers focusing on real life issues](https://www.amazon.fr/Cryptanalysis-RSA-Variants-Jason-Hinek/dp/1420075187)
 
 But the most important remains to do! At thisu point you must have to fly on your own wing on subject that intrest you such as cryptocurencies or peer to peer security!!!
