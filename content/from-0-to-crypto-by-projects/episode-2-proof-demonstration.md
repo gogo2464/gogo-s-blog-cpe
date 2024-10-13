@@ -5,22 +5,18 @@ weight: 2
 draft: false
 ---
 
-## III - Reversing checksum, Méthod by mathematical proof: disproof
+## III - Reversing checksum, Method by mathematical proof: disproof
 
-## 1 - Analyse sous forme de logique mathématique
+According to the documentation and as it is mentionned that type 7 is an hashing algorithm.
 
-Si nous n'avions pas eu le code de comparaison dans packet tracer, nous aurions néanmoins pu procéder à la cryptanalyse de l'algorithme de hachage à sens unique. Ici nous avons la chance de posséder l'algorithme d'inversion. Nous allons donc en profiter afin de nous aider pour concevoir les fondamentaux théoriques derrière l'inversion de la somme de hachage.
+A secure hash algorithm is an hash algorithm so that there does not exist a function `f(enc)` so that `f(enc) = original_plaintext`. 
 
-Afin de voir ce que nous avons voulu démontrer en latex, vous pouvez compiler la démonstration avec les commandes:
+## 1 - Analysis under mathematical thinking
 
-```
-sudo apt install -y texlive-latex-recommended texlive-latex-extra
-pdflatex maths-PT-decompilation.tex
-```
 
-Le reverse engineering de l'algorithme de hachage vigenere cisco a permit de déduire l'algorithme utilisé par cet algorithme. Etant donné qu'il s'agit d'un algorithme de hachage, nous pouvons deviner que les concepteurs pensaient que:
+The reverse engineering of the hash of vigenere cisco has permitted to deduct the method taken by this algorithm.
 
-donc:
+We could then guess that the researchers thanks then that:
 
 ```latex
 \documentclass{article}
@@ -35,7 +31,7 @@ Let lp be the length of the user input password. \\
 Let h be the hash value obtained from the custom algorithm. \\
 So that:
 
-$ \forall h \forall lp \forall hp [hp = "dsfd;kfoA,.iyewrkldJKDHSUBsgvca69834ncxv", \\
+$ \forall h \forall lp \forall hp [hp = (d, s, f, d, ;, k, f, o, A, ,, ., i, y, e, w, r, k, l, d, J, K, D, H, S, U, B, s, g, v, c, a, 6, 9, 8, 3, 4, n, c, x , v), \\
 0 < lp < 16, \\
 h_{0} = 0, \\
 h_{1} = 8, \\
