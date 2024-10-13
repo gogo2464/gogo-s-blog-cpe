@@ -39,7 +39,7 @@ $ which packettracer
 In order to redo same commands as me you could also download it from my repository
 
 ```
-git clone https://github.com/gogo2464/packet-tracer-linux-8.2.1.0118-disassembly
+wget https://github.com/gogo2464/packet-tracer-linux-8.2.1.0118-archive/releases/edit/untagged-4b7b9f96a74e3408a5b2
 cd packet-tracer-linux-8.2.1.0118-disassembly
 sudo apt-get install --reinstall libxcb-xinerama0 --yes
 ```

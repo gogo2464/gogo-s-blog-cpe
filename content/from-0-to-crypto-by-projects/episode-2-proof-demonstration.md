@@ -1,11 +1,11 @@
 ---
-title: "Episode 2: proof and logic, demonstration of disprooving vigenere cisco maths"
+title: "Episode 2: proof and logic, demonstration by disprooving hashing algorithm"
 date: 2024-10-13T1:25:30+02:00
 weight: 2
 draft: false
 ---
 
-## III - Reversing checksum, Method by mathematical proof: disproof
+## I - Reversing cryptography algorithm made to be unreversables (checksum). Method by mathematical proof: disproof
 
 According to the documentation and as it is mentionned that type 7 is an hashing algorithm.
 
