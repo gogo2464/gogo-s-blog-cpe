@@ -8,7 +8,7 @@
             <div class="content">{{ .Content }}</div>
         {{ end }}
 
-        {{ range $paginator.Pages.GroupByDate "2006" }}
+        {{ range $paginator.Pages.ByWeight }}
             <div class="posts-group">
                 <div class="post-year">{{ .Key }}</div>
 
