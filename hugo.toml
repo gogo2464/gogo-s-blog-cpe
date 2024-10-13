@@ -65,19 +65,7 @@ paginate     = 10
 	weight     = 2
 	
   [[menu.main]]
-    identifier = "exploit-dev"
-    name       = "exploit-dev"
-    url        = "/exploit-dev"
-	weight     = 3
-	
-  [[menu.main]]
     identifier = "putting-games-on-darknet"
     name       = "Putting-games-on-darknet"
     url        = "/putting-games-on-darknet"
-	weight     = 4
-	
-  [[menu.main]]
-    identifier = "game-hacking-for-speedrun"
-    name       = "game-hacking-for-speedrun"
-    url        = "/game-hacking-for-speedrun"
-	weight     = 5
+	weight     = 3
