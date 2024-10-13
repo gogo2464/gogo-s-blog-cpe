@@ -12,6 +12,6 @@
 &lt;/ul>
 &lt;p>But the most important remains to do! At thisu point you must have to fly on your own wing on subject that intrest you such as cryptocurencies or peer to peer security!!!&lt;/p></description></item><item><title>Episode 2: proof and logic, demonstration by disprooving hashing algorithm</title><link>https://gogo2464.github.io/gogo-s-blog-cpe/from-0-to-crypto-by-projects/episode-2-proof-demonstration/</link><pubDate>Sun, 13 Oct 2024 01:25:30 +0200</pubDate><guid>https://gogo2464.github.io/gogo-s-blog-cpe/from-0-to-crypto-by-projects/episode-2-proof-demonstration/</guid><description>&lt;h2 id="i---reversing-cryptography-algorithm-made-to-be-unreversables-checksum-method-by-mathematical-proof-disproof">I - Reversing cryptography algorithm made to be unreversables (checksum). Method by mathematical proof: disproof&lt;/h2>
 &lt;p>According to the documentation and as it is mentionned that type 7 is an hashing algorithm.&lt;/p>
-&lt;p>A secure hash algorithm is an hash algorithm so that there does not exist a function &lt;code>$ f(enc) $&lt;/code> so that &lt;code>$ f(enc) = original_plaintext $&lt;/code>.&lt;/p>
+&lt;p>A secure hash algorithm is an hash algorithm so that there does not exist a function $ f(enc) $ so that $ f(enc) = original_plaintext $.&lt;/p>
 &lt;h2 id="1---analysis-under-mathematical-thinking">1 - Analysis under mathematical thinking&lt;/h2>
 &lt;p>The reverse engineering of the hash of vigenere cisco has permitted to deduct the method taken by this algorithm.&lt;/p></description></item></channel></rss>
