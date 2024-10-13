@@ -8,6 +8,12 @@
 
 {{ define "main" }}
     <main aria-role="main">
+	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" 
+   onload="renderMathInElement(document.body);"></script>
+	
+	
         <div>
             <h1>{{ .Site.Params.homeTitle }}</h1>
             {{ partial "subtitle.html" . }}
@@ -90,9 +96,3 @@
 
     </main>
 {{ end }}
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" 
-   onload="renderMathInElement(document.body);"></script>
-
