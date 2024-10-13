@@ -42,8 +42,8 @@ paginate     = 10
 
 [languages]
   [languages.en]
-    title = "Hello Friend NG"
-    subtitle = "A simple theme for Hugo"
+    title = "CPE"
+    subtitle = "CPE: the school that schools to send you to cpe!"
     keywords = ""
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
     readOtherPosts = "Read other posts"
@@ -51,21 +51,21 @@ paginate     = 10
     [languages.en.params.logo]
       logoText = "crypto pwn elite (cpe) blog"
       logoHomeLink = "/gogo-s-blog-cpe"
-  
-  [[menu.main]]
-    identifier = "0toOverflow"
-    name       = "0toOverflow"
-    url        = "/from-0-to-buffer-overflow-by-projects"
-	weight     = 1
 
   [[menu.main]]
     identifier = "0toCrypto"
-    name       = "0toCrypto"
+    name       = "Crypto"
     url        = "/from-0-to-crypto-by-projects"
+	weight     = 1
+
+  [[menu.main]]
+    identifier = "0toOverflow"
+    name       = "Pwn"
+    url        = "/from-0-to-buffer-overflow-by-projects"
 	weight     = 2
 	
   [[menu.main]]
-    identifier = "putting-games-on-darknet"
-    name       = "Putting-games-on-darknet"
+    identifier = "Putting-games-on-darknet"
+    name       = "Elite"
     url        = "/putting-games-on-darknet"
 	weight     = 3
