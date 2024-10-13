@@ -9,7 +9,7 @@ draft: false
 
 According to the documentation and as it is mentionned that type 7 is an hashing algorithm.
 
-A secure hash algorithm is an hash algorithm so that there does not exist a function `f(enc)` so that `f(enc) = original_plaintext`. 
+A secure hash algorithm is an hash algorithm so that there does not exist a function `$$ f(enc) $$` so that `$$ f(enc) = original_plaintext $$`. 
 
 ## 1 - Analysis under mathematical thinking
 
