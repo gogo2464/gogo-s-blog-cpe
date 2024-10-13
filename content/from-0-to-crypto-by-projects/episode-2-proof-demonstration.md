@@ -22,7 +22,7 @@ Le reverse engineering de l'algorithme de hachage vigenere cisco a permit de dé
 
 donc:
 
-```math
+```latex
 \documentclass{article}
 \usepackage{amsmath}
 \usepackage{mathtools, nccmath}
