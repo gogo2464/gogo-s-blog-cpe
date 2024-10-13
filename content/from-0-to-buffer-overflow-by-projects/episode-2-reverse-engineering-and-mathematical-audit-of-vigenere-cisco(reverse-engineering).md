@@ -1,7 +1,7 @@
 ---
-title: "Episode 3 exploitation of pokemon red and blue (no_dep no_aslr and no_canary and no_pie)"
+title: "Episode 2: guessing source-code (reverse engineering) of an cryptographic algorithm to break it"
 date: 2024-10-12T23:00:00+02:00
-weight: 3
+weight: 2
 draft: false
 ---
 
