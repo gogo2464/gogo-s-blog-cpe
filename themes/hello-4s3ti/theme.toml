@@ -1,0 +1,18 @@
+name = "hello-coolapso"
+license = "MIT"
+licenselink = "https://github.com/coolapso/hugo-theme-hello-coolapso/blob/master/LICENSE.md"
+homepage = "https://github.com/coolapso/hugo-theme-hello-4s3ti"
+description = "A simple theme for Hugo. That's it."
+tags = ["blog", "clean", "customizable", "dark", "highlighting", "light", "minimal", "monochromatic", "multilingual", "personal", "responsive", "simple", "technical"]
+features = ["blog", "shortcode", "syntax highlighting"]
+min_version = 0.30
+
+[author]
+  name = "coolapso"
+  homepage = "https://coolapso.sh"
+  x = "https://x.com/ccoolapso"
+
+[original]
+  name = "hello-friend"
+  homepage = "https://github.com/rhazdon/hugo-theme-hello-friend-ng"
+  repo = "https://github.com/rhazdon/hugo-theme-hello-friend-ng"

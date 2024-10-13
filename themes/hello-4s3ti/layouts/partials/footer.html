@@ -1,0 +1,34 @@
+<footer class="footer">
+    {{ if  (.Site.Params.footer.topText) }}
+        <div class="footer__inner">
+            {{ range .Site.Params.footer.topText }}<span>{{ . | safeHTML}}</span>{{ end }}
+        </div>
+    {{ end }}
+    {{ if .Site.Params.footer.socialIcons }}
+        <div class="footer__inner">
+            <ul class="icons">
+                {{- with .Site.Params.social }}
+                    {{ partial "social-icons.html" . }}
+                {{- end }}
+                {{ if .Site.Params.footer.rss }}
+                <li><a href="{{ "posts/index.xml" | absLangURL }}" target="_blank" title="rss" class="icon fa-solid fa-rss"></a></li>
+                {{ end }}
+            </ul>
+        </div>
+    {{ end }}
+    {{if or (.Site.Params.footer.trademark) (.Site.Params.footer.author) (.Site.Params.footer.copyright) }}
+        <div class="footer__inner">
+            {{ if .Site.Params.footer.trademark }}<span>&copy;{{ now.Format "2006" }}</span>&nbsp;{{ end }}
+            {{ if .Site.Params.footer.author }}<span><a href="{{ .Site.BaseURL }}">{{ .Site.Params.author.name }}</a></span>&nbsp;{{ end }}
+            {{ if .Site.Params.footer.copyright }}<span>{{ .Site.Copyright| safeHTML }}</span>{{ end }}
+        </div>
+    {{ end }}
+        <div class="footer__inner">
+            <div class="footer__content">
+            {{ if .Site.Params.version }}<span>{{ .Site.Params.version }}</span>{{ end }}
+            {{with .Site.Params.footer.bottomText}}
+                {{ range . }}<span>{{ . | safeHTML}}</span>{{ end }} 
+            </div>
+          {{ end }}
+        </div>
+</footer>

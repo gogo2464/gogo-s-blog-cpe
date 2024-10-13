@@ -1,0 +1,30 @@
+{
+  "name": "hugo-theme-hello-4s3ti",
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "./CHANGELOG.md"
+      }
+    ],
+    ["@semantic-release/github", {
+      "assets": [
+        {"path": "dist/asset.min.css", "label": "CSS distribution"},
+        {"path": "dist/asset.min.js", "label": "JS distribution"}
+      ]
+    }]
+  ],
+  "release": {
+    "branches": [
+      "master", "test", "dev"
+    ]
+  },
+
+    "branches": [
+    {name: 'master'},
+    {name: 'dev', channel: 'beta', prerelease: true},
+    {name: 'test', channel: 'test', prerelease: true}
+  ]
+}

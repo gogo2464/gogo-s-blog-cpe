@@ -1,0 +1,155 @@
+baseURL = 'https://blog.coolapso.sh/'
+languageCode = 'pt-pt'
+theme = "hello-friend-4s3ti"
+title = 'blog.coolapso.sh'
+copyright = "All Rights Reserved"
+IsMultiLingual = true
+defaultContentLanguage = 'pt-pt'
+
+[params]
+  defaultTheme = "dark"
+  EnableThemeToggle = true
+  EnableSharingButtons = true
+  EnableGlobalLanguageMenu = true
+  backgroundImage = "static/coolapso.webp"
+  backgroundEffects = true
+  showPosts = true
+  tags = true
+  ReadMoreText = true
+  fontAwesome = { KitURL = "https://kit.fontawesome.com/0ed5cec925.js" }
+  ShowReadingTime = true
+  LastModDisplay = true
+  logo = { logoText = "coolapso.sh", logoCursorColor = "#ffffff" }
+  footer = { showVersion = true, socialIcons = true, author = true, rss = true, trademark = true, copyright = true, bottomText = ["Powered by <a href=\"http://gohugo.io\">Hugo</a>", "with <a href=\"https://github.com/coolapso/hugo-theme-hello-4s3ti\">Hello-friend-4s3ti</a>"] }
+
+[[ params.author ]]
+name = "coolapso"
+
+[[params.social]]
+  name = "github"
+  url = "https://github.com/coolapso"
+
+[[params.social]]
+  name = "website"
+  url = "https://coolapso.sh"
+  icon = "fa-solid fa-terminal"
+
+[[params.social]]
+  name = "youtube"
+  url = "https://youtube.com/@ccoolapso"
+
+[[params.social]]
+  name = "x-twitter"
+  url = "https://x.com/ccoolapso"
+
+[[params.social]]
+  name = "instagram"
+  url = "https://www.instagram.com/c4colaco/"
+
+[[params.social]]
+  name = "twitch"
+  url = "https://twitch.tv/cool4pso"
+
+[[params.social]]
+  name = "Buy me a coffee"
+  url = "https://www.buymeacoffee.com/coolapso"
+  icon = "fa-solid fa-coffee"
+
+[languages]
+  [languages.pt-pt]
+    weight = 1
+    languageName = "Portugues"
+
+  [languages.en]
+    weight = 2
+    params = { backgroundImage = "../static/coolapso.webp" }
+
+    [[languages.en.menu.main]]
+      identifier = "posts"
+      name = "Posts"
+      url = "/posts"
+      weight = 1
+
+    [[languages.en.menu.main]]
+      identifier = "about"
+      name = "About"
+      url = "#"
+      weight = 2
+
+    [[languages.en.menu.main]]
+      identifier = "projects"
+      name = "Projects"
+      url = "/projects"
+
+    [[languages.en.menu.main]]
+      identifier = "Project 1"
+      name = "Project 1"
+      url = "#"
+      parent = "projects"
+
+    [[languages.en.menu.main]]
+      identifier = "tools"
+      name = "Tools"
+
+    [[languages.en.menu.main]]
+      identifier = "tool1"
+      name = "tool1"
+      url = "#"
+      parent = "tools"
+
+    [[languages.en.menu.main]]
+      identifier = "Tool2"
+      name = "tool2"
+      url = '#'
+      parent = "tools"
+
+[taxonomies]
+  tag = "tags"
+  category = "blog"
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "Sobre"
+    url = "#"
+    weight = 2
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "tools"
+    name = "Ferramentas"
+
+  [[menu.main]]
+    identifier = "projects"
+    name = "Projetos"
+    url = "/projects"
+
+  [[menu.main]]
+    identifier = "Projeto 1"
+    name = "Projeto 1"
+    url = "#"
+    parent = "projects"
+
+  [[menu.main]]
+    identifier = "ferramenta 1"
+    name = "Ferramenta 1"
+    url = "#"
+    parent = "tools"
+
+  [[menu.main]]
+    identifier = "Ferramenta 2"
+    name = "Ferramenta 2"
+    parent = "tools"
+    url = "#"
+
+  [[menu.main]]
+    identifier = "Ferramenta 3"
+    name = "Ferramenta 3"
+    parent = "tools"
+    url = "#"
+
