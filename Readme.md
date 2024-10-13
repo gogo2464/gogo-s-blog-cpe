@@ -5,4 +5,4 @@ CPE is a organisation of people who would like to practice cyber security in ver
 In this book, you will find a way to learn hacking by realizing only real life exercises potentially working in real life.
 
 
-CPE: the only classrooms that could send you to the CPE ;) !
+[CPE](https://gogo2464.github.io/gogo-s-blog-cpe/): the only classrooms that could send you to the CPE ;) !
