@@ -49,7 +49,7 @@ paginate     = 10
     readOtherPosts = "Read other posts"
 
     [languages.en.params.logo]
-      logoText = "crypto pwn elite (cpe) courses"
+      logoText = "crypto-pwn-elite(cpe): courses"
       logoHomeLink = "/gogo-s-blog-cpe"
 
   [[menu.main]]
