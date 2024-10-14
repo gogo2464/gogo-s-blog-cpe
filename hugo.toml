@@ -31,8 +31,8 @@ paginate     = 10
   enableSharingButtons = true
 
   # Metadata mostly used in document's head
-  description = "My new homepage or blog"
-  keywords = "homepage, blog"
+  description = "CPE online courses about cybersecurity"
+  keywords = "cryptography, buffer overflow"
   images = [""]
 
 #[taxonomies]
@@ -49,7 +49,7 @@ paginate     = 10
     readOtherPosts = "Read other posts"
 
     [languages.en.params.logo]
-      logoText = "crypto pwn elite (cpe) blog"
+      logoText = "crypto pwn elite (cpe) courses"
       logoHomeLink = "/gogo-s-blog-cpe"
 
   [[menu.main]]
