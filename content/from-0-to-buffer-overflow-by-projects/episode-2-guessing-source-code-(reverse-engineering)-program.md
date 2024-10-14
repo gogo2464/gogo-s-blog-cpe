@@ -688,13 +688,14 @@ Excellent! We are now able to study it! We are going to see the mathematical imp
 
 ### III/ Reverse-engineering the code:
 
-## 1 - exercise
+## 1 - exercise:
 
-Reverse the Vigenere Cisco encryption algorithm.
+Reverse the Vigenere Cisco encryption algorithm full code.
 
-The full code that reverse the vigenere cisco hashing algorithm is present [there](https://codeberg.org/gogo/vigenere_cisco_decryptor).
+The full code for the solution that reverse the vigenere cisco hashing algorithm is present [there](https://codeberg.org/gogo/vigenere_cisco_decryptor).
 
-## next
+
+## IV/ reversing the checksum.
 
 By digging, we realize, it is not mandatory the recode ourself the code of the new algorithm. In effect, the command `pd 310 @ sym.Util::decryptType7_char_const__char__unsigned_int_` of radare2 already contains the revesing of the checksum of Vigenere Cisco in Packet Tracer...
 
@@ -702,14 +703,12 @@ Vigenere Cisco algorithm has two main weaknesses:
 - The algorithm does not compare two changed values (hashed) together but quickly reverse it own algorithm to compare 2 unchanged texts.
 - The algorithm contains a password to change and revert to the changes in its own algorithm. This is a weakness. Ensure by checking `Kerckhoffs` principle online.
 
+## 1 - exercise:
+
+Finish to code a tool to reverse the hash and appply it to the hash: `08701E1D5D4C53404A5254537C7E707B616472465243`. The soluce is [at](https://codeberg.org/gogo/vigenere_cisco_decryptor).
+
+
 ## Ressources
 
-Documentation for Packet Tracer commands:
-
-- https://media.defense.gov/2022/Feb/17/2002940795/-1/-1/1/CSI_CISCO_PASSWORD_TYPES_BEST_PRACTICES_20220217.PDF
-- https://cisco.goffinet.org/ccna/gestion-infrastructure/chiffrement-des-mots-de-passes-locaux-cisco-ios/
-- https://www.oreilly.com/library/view/hardening-cisco-routers/0596001665/ch04.html
-
-wrong recopy of vigenere cisco. It prooves the need for this article:
-
-- https://github.com/theevilbit/ciscot7/blob/master/ciscot7.py
+- [vigenere cisco hash algorithm decompiled](https://codeberg.org/gogo/viegenere-cisco-proprietary-algorythm-decompiled-from-packet-tracer)
+- [viegenre cisco reverser](https://codeberg.org/gogo/vigenere_cisco_decryptor)
