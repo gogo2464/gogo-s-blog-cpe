@@ -690,7 +690,9 @@ Excellent! We are now able to study it! We are going to see the mathematical imp
 
 ## 1 - exercise
 
-reverse the Vigenere Cisco encryption algorithm.
+Reverse the Vigenere Cisco encryption algorithm.
+
+The full code that reverse the vigenere cisco hashing algorithm is present [there](https://codeberg.org/gogo/vigenere_cisco_decryptor).
 
 ## next
 
