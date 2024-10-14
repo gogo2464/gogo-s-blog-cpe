@@ -211,7 +211,7 @@ We are then going to position at the position in the file (offset) at `0x038a9e0
 After a raw conversion from assembly to C, the exact assembly logic is:
 
 
-### 2.1.1 exercise:
+## 2.1.1 exercise:
 
 Rewrite the function with name `method.Util.decryptType7_char_const__char__unsigned_int_` at offset `0x038a9e04` in C.
 
