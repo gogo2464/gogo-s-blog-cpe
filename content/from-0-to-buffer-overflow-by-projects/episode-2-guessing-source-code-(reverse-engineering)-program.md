@@ -11,22 +11,22 @@ draft: false
 
 In this course we are going to learn what to do when we do not have the source code of a program but when we need to still read the source code in order to find vulnerabilities that the developpers have let.
 
-You will have to use this code reading technic (reverse engineering) to audit a proprietary hashing algoritgh known as "Vigenere Cisco".
+You will have to use this code reading technic (reverse engineering) to audit a proprietary hashing algorithm known as "Vigenere Cisco".
 
-Trought the main goal of another CPE article is to provide a mathematical proof of the lack of security of Vigenere Cisco, this article focus on how to extract the exact source code (decompilation) of the viginere cisco hash algorithm present in the routers. 
+Trought the main goal of another CPE article is to provide a mathematical proof of the lack of security of Vigenere Cisco, this article focus on how to extract the exact source code (decompilation) of the viginere Cisco hash algorithm present in the routers. 
 
-In this tutorial, we will see how to decompile packet tracer to read the source code of a vulnerable hash algorithm to then break it.
+In this tutorial, we will see how to decompile Packet Tracer to read the source code of a vulnerable hash algorithm to then break it.
 
 
 ## I - Decompiling vigenere cisco hashing algorithm
 
 ## 1: Introduction:
 
-It is the same output as we could see in `packet tracer`. Then I suggest to decompile packet tracer from internet instead of openning router hardware.
+It is the same output as we could see in `packet tracer`. Then I suggest to decompile Packet Tracer from internet instead of openning router hardware.
 
-Let's read the packet tracer source code!
+Let's read the Packet Tracer source code!
 
-Download packet tracer from: https://skillsforall.com/resources/lab-downloads
+Download Packet Tracer from: https://skillsforall.com/resources/lab-downloads
 
 ```bash
 sudo dpkg -i Packet_Tracer821_amd64_signed_ab5472da4e.deb
@@ -95,7 +95,7 @@ cd pt
 
 ### 2.1: static analysis: looking for symbols (exercice)
 
-The next command allow you to read the PacketTracer porgram disassembly.
+The next command allow you to read the Packet Tracer program disassembly.
 
 ```
 PTDIR="$(pwd)/pt/"
@@ -106,7 +106,7 @@ radare2 -a x86 -b 64 -A ./pt/bin/PacketTracer
 
 ## 2.1.1: exercise:
 
-In radare2, try to find the functions where is defined to source code of the vigenere cisco hashing algorithm.
+In radare2, try to find the functions where is defined to source code of the vigenere Cisco hashing algorithm.
 
 ### 2.2 static analysis: looking for symbols
 
@@ -118,16 +118,16 @@ export LD_LIBRARY_PATH="$(pwd)/pt/bin/"
 radare2 -a x86 -b 64 -A ./pt/bin/PacketTracer
 ```
 
-Developpers alway need to debug their code to fix bug. Sometimes, the developpers ignore or forget to remove the "debug mode" of their compilation tool. This situation allow a reverse engineer to make reverse engineering more easely.
+Developpers always need to debug their code to fix bug. Sometimes, the developpers ignore or forget to remove the "debug mode" of their compilation tool. This situation allow a reverse engineer to make reverse engineering more easily.
 
-Packet tracer contains symbols and then can be reversed more easely.
+Packet Tracer contains symbols and then can be reversed more easily.
 
 ```
 > f~LineCon.password_type7
 0x019396c0 1 method.CommandSet::Common::LineCon.password_type7_std::vector_std::__cxx11::basic_string_char__std::char_traits_char___std::allocator_char_____std::allocator_std::__cxx11::basic_string_char__std::char_traits_char___std::allocator_char_________CommandSet:
 ```
 
-At this moment, let's jumpt to `0x019396c0` tho analyze the code of the commands command related to type7 hashing:
+At this moment, let's jump to `0x019396c0` to analyze the code of the command related to `type7` hashing:
 
 ```
 s method.CommandSet::Common::LineCon.password_type7_std::vector_std::__cxx11::basic_string_char__std::char_traits_char___std::allocator_char_____std::allocator_std::__cxx11::basic_string_char__std::char_traits_char___std::allocator_char_________CommandSet:
@@ -137,7 +137,11 @@ s method.CommandSet::Common::LineCon.password_type7_std::vector_std::__cxx11::ba
 pd 895 @ sym.Util::encryptType7_char_const__char__unsigned_int_
 ```
 
-Let's move directly to `radare2 -a x86 -b 64 -s sym.Util::encryptType7_char_const__char__unsigned_int_ /opt/pt/bin/PacketTracer`
+Let's move directly to 
+
+```
+radare2 -a x86 -b 64 -s sym.Util::encryptType7_char_const__char__unsigned_int_ /opt/pt/bin/PacketTracer
+```
 
 ### 2.2.3: Looking to with the help of dynamic analysis
 
@@ -149,7 +153,11 @@ export LD_LIBRARY_PATH="$(pwd)/pt/bin/"
 gdbserver localhost:2345 pt/bin/PacketTracer
 ```
 
-From another terminal: `radare2 -a x86 -b 64 -c "dc" -s sym.Util::encryptType7_char_const__char__unsigned_int_ -e dbg.exe.path=pt/bin/PacketTracer -d gdb://localhost:2345`
+From another terminal:
+ 
+```
+radare2 -a x86 -b 64 -c "dc" -s sym.Util::encryptType7_char_const__char__unsigned_int_ -e dbg.exe.path=pt/bin/PacketTracer -d gdb://localhost:2345
+```
 
 Now from Packet Tracer GUI, open a terminal in a router and type:
 
@@ -180,7 +188,7 @@ method.CommandSet::CTerminalLine.getDecryptedPassword_abi:cxx11____const 0x2f242
 method.Device::CCiscoDevice.getPasswordOfUser_std::__cxx11::basic_string_char__std::char_traits_char___std::allocator_char____ 0x2ff8d2f [CALL] sub dword [rax], 1
 ```
 
-It seems that is is where is compared the checksum.
+It seems that this is where the checksum is compared.
 
 ### 2 - Understanding the code
 
@@ -193,14 +201,14 @@ f~decryptType7
 0x038a9d90 1 method.Util.decryptType7_char_const__char__unsigned_int_
 ```
 
-We realize that the function does not compare two hashes tohgether but reverse itself the hash and then compare 2 unmodified text values (plain text). We are now going to rewrite the hashing function, decompile it, recompile it in C.
+We realize that the function does not compare two hashes together but reverse itself the hash and then compare 2 unmodified text values (plain text). We are now going to rewrite the hashing function, decompile it, recompile it in C.
 
-The program seems to have been coded by hand in assembly language or maybe has been modified by automatic tools after compilation to make the reading harder to copyright infrighters.
+The program seems to have been coded by hand in assembly language or maybe has been modified by automatic tools after compilation to make the reading harder to copyright infringers.
 
 We are then going to position at the position in the file (offset) at `0x038a9e04` bytes from the start of the file and to define there in order to allow radare2 to print a graph with the command: `af @ 0x038a9e04`. We are now in capacity to understand the flow with the command `VV` at this offset.
 
 
-Après une conversion brute de l'assembleur en C, la logique exacte de l'assembleur est:
+After a raw conversion from assembly to C, the exact assembly logic is:
 
 
 ### 2.1.1 exercise:
@@ -347,7 +355,7 @@ Refactor the code with real variable names and clean structures such as: if/whil
 
 ### 2.2.2 exercise:
 
-We now are able to clean the code. It outs mainly that the first code part is alway equals to 8. We are then now refactoring the source code with register `r15` in favor of `j`.
+We now are able to clean the code. It outs mainly that the first code part is always equals to 8. We are then now refactoring the source code with register `r15` in favor of `j`.
 
 ```c
 r15 = 8;
@@ -359,7 +367,7 @@ Becomes `j = 8` in:
 for (int i = 2, j = 8, k = 0, o = 0; i < s + 1; i++, k ++, o ++) {
 ```
 
-Same as, same as following the code logic,
+In the same way that following the code logic:
 
 ```c
     if (((s+1)>>1)-2) > size) {
@@ -367,7 +375,7 @@ Same as, same as following the code logic,
     }
 ```
 
-becomes:
+Becomes:
 
 ```c
     s ++; // weird
@@ -384,7 +392,7 @@ The next line:
 if ((i & 1) == 0) {
 ```
 
-Seems to serve to return 0 one time on 2. It is a kind of half counter that is true only 1/2 times when the while is iterating. Cela vient soit d'une optimisation par le compilateur, d'une obfuscation par une méthode de lutte contre le piratage/ d'espionnage industriel / rétro ingénieurie en général ou résulte simplement d'un développeur inexpérimenté qui aurait codé cette fonction manuellement en assembleur. C'est une logique inutilement compliquée à lire pour les développeurs et les cryptanalistes. Nous pourrions alors la remplacer par un modulo tel que:
+Seems to serve to return 0 one time on 2. It is a kind of half counter that is true only 1/2 times when the while is iterating. This comes either from an optimization by the compiler, from an obfuscation by an anti-piracy/industrial espionage/reverse engineering method in general or simply from an inexperienced developer who would have coded this function manually in assembly. This is an unnecessarily complicated logic to read for developers and cryptanalysts. We will then replace it with a modulo such as:
 
 ```
 if ((i % 2) == 0) {
@@ -458,13 +466,13 @@ out_original_password[((i+1)>>1)-2] = char_output;
 
 Thanks to debugging, we know that it corresponds to the iteration between 0 to the full checksum size typed.
 
-It calculate `i` and iterate from 0 starting from the 3 of `i`. We are then now goint to replace it by:
+It calculate `i` and iterate from 0 starting from the 3 of `i`. We are then now going to replace it by:
 
 ```c
 out_original_password[o] = char_output;
 ```
 
-as:
+As:
 
 ```c
     int o = 0;
@@ -490,9 +498,9 @@ if ((mysterious_variable3 > 0x5)) {
 ```
 
 
-This is then a code verification to ensure that the entry hash `hash[i]` is superior to `0x46` that provide F for a computer when the computer compare a number to characters (in ascii).
+This is then a code verification to ensure that the entry hash `hash[i]` is superior to `0x46` that provide F for a computer when the computer compares a number of characters (in ascii).
 
-It then means thet the program verifies that the hash has caracters in the interval `0123456789abcdef`, then any caracters in the previous list (in hexadecimal) because the type 7 can not contains caracters not in hecadecimal. Inputting an entry out of these values would trigger an error and the program exits in such case.
+It then means that the program verifies that the hash has characters in the interval `0123456789abcdef`, then any characters in the previous list (in hexadecimal) because the `type7` cannot contain non-hexadecimal characters. Inputting an entry outside of these values would trigger an error and the program exits in such case.
 
 I am also removing the:
 ```c
@@ -503,7 +511,7 @@ I am also removing the:
 
 This code is useless because the buffer always has the same size...
 
-We still could cut this code and the loop in two functions:
+We still could split this code and the loop in two functions:
 
 ```c
     char char_output = '\0';
@@ -563,13 +571,13 @@ The code becomes more readable!!
 
 After analysis, the code part `mysterious_variable2 = toupper(hash[i]) - 0x30;` achieves to convert ascii to hexadecimal. A bit like `atoi`. We are now going to rename `mysterious_variable2` to `hexified_hash_ascii`.
 
-I was not really understanding easely the behavior of  `out_original_password[((s+1) >> 2) - 2]` and I was not able to make it run. 
+I was not really understanding easily the behavior of  `out_original_password[((s+1) >> 2) - 2]` and I was not able to make it run. 
 
 Anyway, from the global program internals, I see I should replace it with `out_original_password[o] = '\0';`.
 
 `if ((hash[1] - 0x30) > 0x9) {` becomes `if (hash[1] > '9')`. And `if ((hash[0] - 0x30) > 0x9) {` becomes `if (hash[1] > '9')`.
 
-On retire `s = strlen(hash);`.
+We remove `s = strlen(hash);`.
 
 And... We finally have:
 
@@ -682,24 +690,24 @@ Excellent! We are now able to study it! We are going to see the mathematical imp
 
 ## 1 - exercise
 
-reverse the Vigenere cisco encryption algorithm.
+reverse the Vigenere Cisco encryption algorithm.
 
 ## next
 
-By digging, we realize, it is not mandatory the recode ourself the code of the new algorithm. In effect, the command `pd 310 @ sym.Util::decryptType7_char_const__char__unsigned_int_` of radare2 already contains the revesing of the checksum of vigenere cisco in packet tracer...
+By digging, we realize, it is not mandatory the recode ourself the code of the new algorithm. In effect, the command `pd 310 @ sym.Util::decryptType7_char_const__char__unsigned_int_` of radare2 already contains the revesing of the checksum of Vigenere Cisco in Packet Tracer...
 
-Vigenere Cisco algorythm has two main weaknesses:
-- The algorithm does not compares two values changed (hashed) together but quickly reverse it own algorithm to compare 2 texts not changed.
-- The algorith contains a password to change and come back to the changes in it own algorithm. It is a weakness. Ensure by checking `Kerckhoff` principle online.
+Vigenere Cisco algorithm has two main weaknesses:
+- The algorithm does not compare two changed values (hashed) together but quickly reverse it own algorithm to compare 2 unchanged texts.
+- The algorithm contains a password to change and revert to the changes in its own algorithm. This is a weakness. Ensure by checking `Kerckhoffs` principle online.
 
 ## Ressources
 
-Documentation for the packet tracer commands:
+Documentation for Packet Tracer commands:
 
-https://media.defense.gov/2022/Feb/17/2002940795/-1/-1/1/CSI_CISCO_PASSWORD_TYPES_BEST_PRACTICES_20220217.PDF
-https://cisco.goffinet.org/ccna/gestion-infrastructure/chiffrement-des-mots-de-passes-locaux-cisco-ios/
-https://www.oreilly.com/library/view/hardening-cisco-routers/0596001665/ch04.html
+- https://media.defense.gov/2022/Feb/17/2002940795/-1/-1/1/CSI_CISCO_PASSWORD_TYPES_BEST_PRACTICES_20220217.PDF
+- https://cisco.goffinet.org/ccna/gestion-infrastructure/chiffrement-des-mots-de-passes-locaux-cisco-ios/
+- https://www.oreilly.com/library/view/hardening-cisco-routers/0596001665/ch04.html
 
 wrong recopy of vigenere cisco. It prooves the need for this article:
 
-https://github.com/theevilbit/ciscot7/blob/master/ciscot7.py
+- https://github.com/theevilbit/ciscot7/blob/master/ciscot7.py
