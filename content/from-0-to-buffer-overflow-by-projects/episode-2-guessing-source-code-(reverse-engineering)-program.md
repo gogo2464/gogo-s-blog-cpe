@@ -18,11 +18,11 @@ Trought the main goal of another CPE article is to provide a mathematical proof 
 In this tutorial, we will see how to decompile Packet Tracer to read the source code of a vulnerable hash algorithm to then break it.
 
 
-## I - Decompiling vigenere cisco hashing algorithm
+## I - Guessing vigenere cisco hashing algorithm (decompilation)
 
-## 1: Introduction:
+## 1: Downloading the audited program:
 
-It is the same output as we could see in `packet tracer`. Then I suggest to decompile Packet Tracer from internet instead of openning router hardware.
+As the same output in the real life cisco routers as what we could see in `packet tracer`. Then I suggest to decompile Packet Tracer from internet instead of openning router hardware.
 
 Let's read the Packet Tracer source code!
 
@@ -93,7 +93,12 @@ cd pt.tar
 cd pt
 ```
 
-### 2.1: static analysis: looking for symbols (exercice)
+
+## II - Reversing the checksum, method by attacking the logic behind the algorithm
+
+Our goal is to read the logic of the cryptography algorithm to then code a program with a logic that reverses it.
+
+## 1: static analysis: looking for symbols
 
 The next command allow you to read the Packet Tracer program disassembly.
 
@@ -103,12 +108,7 @@ export LD_LIBRARY_PATH="$(pwd)/pt/bin/"
 radare2 -a x86 -b 64 -A ./pt/bin/PacketTracer
 ```
 
-
-## 2.1.1: exercise:
-
-In radare2, try to find the functions where is defined to source code of the vigenere Cisco hashing algorithm.
-
-### 2.2 static analysis: looking for symbols
+### 2 static analysis: looking for symbols
 
 In a terminal, run:
 
@@ -143,9 +143,9 @@ Let's move directly to
 radare2 -a x86 -b 64 -s sym.Util::encryptType7_char_const__char__unsigned_int_ /opt/pt/bin/PacketTracer
 ```
 
-### 2.2.3: Looking to with the help of dynamic analysis
+### 2.3: Looking to with the help of dynamic analysis
 
-### 2.2.3.1: Obtain the hardcoded password
+### 2.3.1: Obtain the hardcoded password
 
 ```bash
 PTDIR="$(pwd)/pt/"
@@ -174,7 +174,26 @@ exit
 show run | include password
 ```
 
-## II - Reversing the checksum, method by full reverse engineering
+Then I type `:` to open the console and I run the command:
+
+```bash
+VV
+```
+
+We could realize there is a graph that represent the if/else conditions and loops (control flow graph) of the program.
+
+According to the graph, [there is the corresponding source code reverse engineered](https://codeberg.org/gogo/viegenere-cisco-proprietary-algorythm-decompiled-from-packet-tracer)
+
+From this point we could also put breakpoint in the graph with the command `db 0x12345678` if you replace `0x12345678` with the place in the program (offset) where is located the line that you would like to debug to see how the function works.
+
+Vigenere Cisco algorithm has two main weaknesses:
+- The algorithm does not compare two changed values (hashed) together but quickly reverse it own algorithm to compare 2 unchanged texts.
+- The algorithm contains a password in it own readable algorithm to change and revert to the changes in its own algorithm. This is a weakness. Ensure by checking `Kerckhoffs` principle online.
+
+- we could also guess the plain password from the hashed password.
+
+
+## III - Reversing the result (checksum), method with only reverse engineering
 
 ### 1 - Introduction
 
@@ -207,13 +226,9 @@ The program seems to have been coded by hand in assembly language or maybe has b
 
 We are then going to position at the position in the file (offset) at `0x038a9e04` bytes from the start of the file and to define there in order to allow radare2 to print a graph with the command: `af @ 0x038a9e04`. We are now in capacity to understand the flow with the command `VV` at this offset.
 
+Let's rewrite the function with name `method.Util.decryptType7_char_const__char__unsigned_int_` at offset `0x038a9e04` in C.
 
 After a raw conversion from assembly to C, the exact assembly logic is:
-
-
-## 2.1.1 exercise:
-
-Rewrite the function with name `method.Util.decryptType7_char_const__char__unsigned_int_` at offset `0x038a9e04` in C.
 
 ```c
 #include <cstring>
@@ -349,11 +364,7 @@ int decrypt_with_vigenere(const char * hash, char * out_original_password, int s
 }
 ```
 
-### 2.2.1 exercise:
-
-Refactor the code with real variable names and clean structures such as: if/while/for/etc.. (control flow)
-
-### 2.2.2 exercise:
+Let's refactor the code with real variable names and clean structures such as: if/while/for/etc.. (control flow).
 
 We now are able to clean the code. It outs mainly that the first code part is always equals to 8. We are then now refactoring the source code with register `r15` in favor of `j`.
 
@@ -400,9 +411,6 @@ if ((i % 2) == 0) {
 
 There subsist trough the risk that the code logic is altered by the reverse engineeing refactoring. Let's create some unit tests:
 
-### 2.3.1 exercise:
-
-Code unit test to ensure you did not corrupted the memory yet.
 
 ### 2.3.1 Coding Unit tests:
 
@@ -452,11 +460,10 @@ original password3: hello_you
 Excellent! Since we have this output, we know that the code has not been altered by the analysis. Let's continue!
 
 
-### 2.4.1 exercise:
-
-Rewrite `((i+1)>>1)-2` to more readable way.
-
 ### 2.4.2 refactoring `((i+1)>>1)-2`
+
+Let's rewrite `((i+1)>>1)-2` to more readable way.
+
 
 An mysterious iterator `((i+1)>>1)-2` is present at the line:
 
@@ -686,26 +693,14 @@ int decrypt_with_vigenere(const char * hash, char * out_original_password, int s
 Excellent! We are now able to study it! We are going to see the mathematical implication that follows that in [the next article that focuses on mathematical proofs and logic a](there).
 
 
-### III/ Reverse-engineering the code:
-
-## 1 - exercise:
-
-Reverse the Vigenere Cisco encryption algorithm full code.
-
 The full code for the solution that reverse the vigenere cisco hashing algorithm is present [there](https://codeberg.org/gogo/vigenere_cisco_decryptor).
 
 
-## IV/ reversing the checksum.
+## 2.5
 
 By digging, we realize, it is not mandatory the recode ourself the code of the new algorithm. In effect, the command `pd 310 @ sym.Util::decryptType7_char_const__char__unsigned_int_` of radare2 already contains the revesing of the checksum of Vigenere Cisco in Packet Tracer...
 
-Vigenere Cisco algorithm has two main weaknesses:
-- The algorithm does not compare two changed values (hashed) together but quickly reverse it own algorithm to compare 2 unchanged texts.
-- The algorithm contains a password to change and revert to the changes in its own algorithm. This is a weakness. Ensure by checking `Kerckhoffs` principle online.
-
-## 1 - exercise:
-
-Finish to code a tool to reverse the hash and appply it to the hash: `08701E1D5D4C53404A5254537C7E707B616472465243`. The soluce is [at](https://codeberg.org/gogo/vigenere_cisco_decryptor).
+The reverse of the hash `08701E1D5D4C53404A5254537C7E707B616472465243` is `123456789876543210555`. The soluce is [at](https://codeberg.org/gogo/vigenere_cisco_decryptor).
 
 
 ## Ressources
