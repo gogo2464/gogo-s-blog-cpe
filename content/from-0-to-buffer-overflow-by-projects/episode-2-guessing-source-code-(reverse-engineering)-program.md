@@ -190,12 +190,13 @@ Vigenere Cisco algorithm has two main weaknesses:
 - The algorithm does not compare two changed values (hashed) together but quickly reverse it own algorithm to compare 2 unchanged texts.
 - The algorithm contains a password in it own readable algorithm to change and revert to the changes in its own algorithm. This is a weakness. Ensure by checking `Kerckhoffs` principle online.
 
-- we could also guess the plain password from the hashed password.
+- we could also guess the plain password from the hashed password. At this point the third issue is a details because the two other points are enough to reverse the algorithm.
+
+The logic behind how to reverse the algorithm is not intuitive. You will need to read an article [there to see how to bypass the logic behind the guessed source code of the program](https://gogo2464.github.io/gogo-s-blog-cpe/from-0-to-crypto-by-projects/episode-2-proof-demonstration/).
 
 
 ## III - Reversing the result (checksum), method with only reverse engineering
 
-### 1 - Introduction
 
 We could see where the password is used:
 
@@ -209,7 +210,7 @@ method.Device::CCiscoDevice.getPasswordOfUser_std::__cxx11::basic_string_char__s
 
 It seems that this is where the checksum is compared.
 
-### 2 - Understanding the code
+### 1 - Understanding the code
 
 While looking for in the code we found an unbelievable finding. After executing the command: `pd 310 @ sym.Util::decryptType7_char_const__char__unsigned_int_`.
 
