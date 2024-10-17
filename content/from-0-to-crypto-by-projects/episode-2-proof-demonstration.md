@@ -25,11 +25,9 @@ The question is to proove that there exists a function $ rev(hashed) $ so that $
 
 We intuitevely see points to split the issue into easier pieces:
 
-- the algorithm threat data block by blocks with blocks of two opcodes (numbers between 0 and 256) knowns bigram.
-
-The algorith treat bigrams as following:
-
+The algorith treat bigrams (blocks of two opcodes) as following:
 - the two opcodes are both xored to the hardcoded password.
+- 
 
 
 
