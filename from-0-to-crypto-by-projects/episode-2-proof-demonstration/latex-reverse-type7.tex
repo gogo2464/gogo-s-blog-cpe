@@ -103,17 +103,47 @@ h = \Sigma_{i=2}^{lp}
 \end{multline}
 $$
 
-## I/ exclusive or
+## I/ substraction to reverse the addition
 
-According to the [Karnaught table](https://fr.wikipedia.org/wiki/Table_de_v%C3%A9rit%C3%A9#Disjonction_exclusive), $ \forall x [(x \xor x) \implies (x = 0)] $.
+$\forall x [(x = y + z) \implies (y = e \minus z)]$ then it follow that as the previous part of the function contains: $ h = x + 0x30 $, then $ h - 0x30 = x $ so $ \exists rev(h)[rev(H(p)) =p - 0x30] $ 
 
-Then as $ xlat \xor xlat = 0 $, and as $ p \xor 0 = p $, we know that the original password $p = xlat \xor h $.
+## II/ exclusive or
 
-## II/ substraction to reverse the addition
+According to the Karnaught table at: https://fr.wikipedia.org/wiki/Table_de_v%C3%A9rit%C3%A9#Disjonction_exclusive, $ \forall x [(x \oplus x) \implies (x = 0)] $.
+$$
+\\
+$$
+Then as $ xlat \oplus xlat = 0 $, and as $ p \oplus 0 = p $, we know that the original password $p = xlat \oplus h $.
+$$
+\\
+\\
+$$
 
-$\forall x [(x = y + z) \implies (y = e \minus z)]$
+## III/ rotating 4 first to 4 last bits
 
-## III/ truncating 4 first and 4 last bits
+$ \forall x [(x \ggg y) \implies (x \lll y = x)] $.
+$$
+\\
+$$
+Then as $z = (x \ggg y) = (x \lll y) $, we know that the original password $ p = H(p) \lll 4 $.
+$$
+\\
+\\
+$$
+
+## IV/ unmasking different signatures (recurrent marks) in the hash
+
+In the previous chapter one `I/ substraction to reverse the addition`, we told we can reverse the previous addition. We still need to guess which addition/substraction has been done previously.
+
+As both addition values are made depending of:
+
+```
+if (password[left] & 0xfffffff0 < 0xa0) -> password[left] + 0x30 or else password[left] + 0x37
+if (password[right] & 0x0000000f < 0x0a) -> password[right] & 0x0f + 0x30 or else password[right] & 0x0f + 0x37
+```
+
+
+
 
 
 Then we have proven that:
