@@ -10,6 +10,7 @@ Let hp be the hardcoded password in the code of Packet Tracer. \\
 Let lp be the length of the user input password. \\
 Let h be the hash value obtained from the custom algorithm. \\
 So that:
+
 $$
 \begin{flushleft}
 \begin{multline}
@@ -23,14 +24,14 @@ h = \Sigma_{i=2}^{lp}
 \begin{cases}
     ((p_i \oplus hp_{8 + i}) \ggg 4) + 0x30,                                   & \text{if } (p_{i} \oplus hp_{i+8} \land 0xfffffff0 < 0xa0)        \text{ and if } i \equiv 0 \pmod 2 \\
     ((p_i \oplus hp_{8 + i}) \ggg 4) + 0x37,                                   & \text{if } (p_{i} \oplus hp_{i+8} \land 0xfffffff0 \geq 0xa0)     \text{ and if } i \equiv 0 \pmod 2 \\
-    ((p_i \oplus hp_{8 + i}) \land 0xf) + 0x30,                               & \text{if } (p_{i} \oplus hp_{i+8} \land 0xf < 0x0a)               \text{ and if } i \equiv 1 \pmod 2 \\
-    ((p_i \oplus hp_{8 + i}) \land 0xf) + 0x37,                               & \text{if } (p_{i} \oplus hp_{i+8} \land 0xf \geq 0x0a)            \text{ and if } i \equiv 1 \pmod 2
+    ((p_i \oplus hp_{8 + i}) \land 0xf) + 0x30,                                & \text{if } (p_{i} \oplus hp_{i+8} \land 0xf < 0x0a)               \text{ and if } i \equiv 1 \pmod 2 \\
+    ((p_i \oplus hp_{8 + i}) \land 0xf) + 0x37,                                & \text{if } (p_{i} \oplus hp_{i+8} \land 0xf \geq 0x0a)            \text{ and if } i \equiv 1 \pmod 2
 \end{cases} \\
 ) \implies \nexists p[p = \mathbf{rev}(h)] \\
 
 \]
-\end{flushleft}
 \end{multline}
+\end{flushleft}
 $$
 
 So let's split each sub steps of the algorithm. In this wayt, we could start prooving that if $ P \implies Q $ and if $ Q \implies R $ then $ P \implies R $
@@ -52,8 +53,8 @@ h = \Sigma_{i=2}^{lp}
 ) \implies \nexists p[p = \mathbf{rev}(h)] \\
 
 \]
-\end{flushleft}
 \end{multline}
+\end{flushleft}
 $$
 
 
@@ -73,8 +74,8 @@ h = \Sigma_{i=2}^{lp}
 \end{cases} \\
 ) \implies \forall p[p = \mathbf{rev}(h)] \\
 \]
-\end{flushleft}
-\end{multline}\\
+\end{multline}
+\end{flushleft}\\
 $$
 
 
@@ -99,13 +100,13 @@ h = \Sigma_{i=2}^{lp}
 ) \implies \nexists p[p = \mathbf{rev}(h)] \\
 
 \]
-\end{flushleft}
 \end{multline}
+\end{flushleft}
 $$
 
 ## I/ substraction to reverse the addition
 
-$\forall x [(x = y + z) \implies (y = e \minus z)]$ then it follow that as the previous part of the function contains: $ h = x + 0x30 $, then $ h - 0x30 = x $ so $ \exists rev(h)[rev(H(p)) =p - 0x30] $ 
+$\forall x [(x = y + z) \implies (y = e \minus z)]$ then it follow that as the previous part of the function contains: $ h = x + 0x30 $, then $ h - 0x30 = x $ so $ \exists rev(h)[rev(H(p)) =p - 0x30] \\$ 
 
 ## II/ exclusive or
 
@@ -113,18 +114,12 @@ According to the Karnaught table at: https://fr.wikipedia.org/wiki/Table_de_v%C3
 $$
 \\
 $$
-Then as $ xlat \oplus xlat = 0 $, and as $ p \oplus 0 = p $, we know that the original password $p = xlat \oplus h $.
-$$
-\\
-\\
-$$
+Then as $ xlat \oplus xlat = 0 $, and as $ p \oplus 0 = p $, we know that the original password $p = xlat \oplus h $. $\\$
 
 ## III/ rotating 4 first to 4 last bits
 
-$ \forall x [(x \ggg y) \implies (x \lll y = x)] $.
-$$
-\\
-$$
+$ \forall x [(x \ggg y) \implies (x \lll y = x)] $. \\
+
 Then as $z = (x \ggg y) = (x \lll y) $, we know that the original password $ p = H(p) \lll 4 $.
 $$
 \\
@@ -135,18 +130,51 @@ $$
 
 In the previous chapter one `I/ substraction to reverse the addition`, we told we can reverse the previous addition. We still need to guess which addition/substraction has been done previously.
 
-As both addition values are made depending of:
+As both addition values are made depending of: \\
+if $ (password_left & 0xf0 < 0xa0) \implies (password_left & 0xf0 + 0x30) $ or else $ (password_left & 0xf0 > 0xa0) \implies (password_left & 0xf0 + 0x37)  \\ $
+if $ (password_right & 0x0f < 0x0a) \implies (password_right & 0x0f + 0x30)$ or else $ (password_right & 0x0f > 0xa0) \implies (password_right & 0x0f + 0x37) \\ $
 
-```
-if (password[left] & 0xfffffff0 < 0xa0) -> password[left] + 0x30 or else password[left] + 0x37
-if (password[right] & 0x0000000f < 0x0a) -> password[right] & 0x0f + 0x30 or else password[right] & 0x0f + 0x37
-```
+So if the out has the 4 four bits value so that: 
+$ x \in { x | (0xf0 & x) \leq 0xa0 } \implies y = x + 0x30 $ $\\$
+
+So if the out has the 4 four bits value so that: 
+$ x \in { x | (0xf0 & x) > 0xa0 } \implies y = x + 0x37 $ $\\$
+
+So if the out has the 4 four first bits value so that:
+$ x \in { x | (0x0f & x) \leq 0x0a } \implies y = x + 0x30 $ $\\$
+
+So if the out has the 4 four first bits value so that:
+$ x \in { x | (0x0f & x) > 0x0a } \implies y = x + 0x37 $ $\\$
+
+first byte: \\
+  $ 0xa0 < 0xf0 + 0x30 < y \\ $ 
+  then:\\
+  -1: $ x \in { x | 0xa0 < x } \implies [y \in { y | 0xc7 < y < 0xa7 }] \\$
+  -2: $ x \in { x | x < 0xa0 } \implies [y \in { y | 0xc0 < y < }] \\$
+
+second byte:
+  $ 0xa0 < 0x0f + 0x30 < y \\ $ 
+  -1: $ x \in { x | x < 0x0a } \implies [y \in { y | 0x3a < y }] \\$
+  -2: $ x \in { x | 0x0a < x } \implies [y \in { y | y < 0x4a }] \\$
 
 
+Then for both of any subnumber:
 
+$ \forall y = H(x), x \in { x | x \leq 0xa } \implies y = x + 0x30$ $\\$
+$ \forall y = H(x), x \in { x | x > 0xa } \implies y = x + 0x37 $ $\\$
 
+It follows:
 
-Then we have proven that:
+$ \forall y = H(x), y \in { y | 0 < y \leq 0xa + 0x30 } \implies x = y - 0x30 $ then $ 0 < x < 0xa $ $\\$
+$ \forall y = H(x), y \in { y | 0 < y \leq 0xa + 0x37 } \implies x = y - 0x30 $ then $ 0xa < x < 0x13 $ $\\$
+
+# V /communtativity:
+
+Addition, substraction and $ \oplus $ are commutative. \\ \\
+
+# VI / proof
+
+Then we have already proven each piece of the theorem so that:
 
 $hp = (d, s, f, d, ;, k, f, o, A, ,, ., i, y, e, w, r, k, l, d, J, K, D, H, S, U, B, s, g, v, c, a, 6, 9, 8, 3, 4, n, c, x , v) \implies (\forall x \in hp[0 \geq x 0 \geq 256 \implies x \in hp]) $
 
