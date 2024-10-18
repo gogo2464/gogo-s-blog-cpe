@@ -22,10 +22,10 @@ h_{0} = 0, \\
 h_{1} = 8, \\
 h = \Sigma_{i=2}^{lp}
 \begin{cases}
-    ((p_i \oplus hp_{8 + i}) \ggg 4) + 0x30,                                   & \text{if } (p_{i} \oplus hp_{i+8} \land 0xfffffff0 < 0xa0)        \text{ and if } i \equiv 0 \pmod 2 \\
-    ((p_i \oplus hp_{8 + i}) \ggg 4) + 0x37,                                   & \text{if } (p_{i} \oplus hp_{i+8} \land 0xfffffff0 \geq 0xa0)     \text{ and if } i \equiv 0 \pmod 2 \\
-    ((p_i \oplus hp_{8 + i}) \land 0xf) + 0x30,                                & \text{if } (p_{i} \oplus hp_{i+8} \land 0xf < 0x0a)               \text{ and if } i \equiv 1 \pmod 2 \\
-    ((p_i \oplus hp_{8 + i}) \land 0xf) + 0x37,                                & \text{if } (p_{i} \oplus hp_{i+8} \land 0xf \geq 0x0a)            \text{ and if } i \equiv 1 \pmod 2
+    ((p_i \oplus hp_{8 + i}) \ggg 4) + 0x30,                                   & \text{if } (h_{i} \oplus hp_{i+8} \land 0xfffffff0 < 0xa0)        \text{ and if } i \equiv 0 \pmod 2 \\
+    ((p_i \oplus hp_{8 + i}) \ggg 4) + 0x37,                                   & \text{if } (h_{i} \oplus hp_{i+8} \land 0xfffffff0 \geq 0xa0)     \text{ and if } i \equiv 0 \pmod 2 \\
+    ((p_i \oplus hp_{8 + i}) \land 0xf) + 0x30,                                & \text{if } (h_{i} \oplus hp_{i+8} \land 0xf < 0x0a)               \text{ and if } i \equiv 1 \pmod 2 \\
+    ((p_i \oplus hp_{8 + i}) \land 0xf) + 0x37,                                & \text{if } (h_{i} \oplus hp_{i+8} \land 0xf \geq 0x0a)            \text{ and if } i \equiv 1 \pmod 2
 \end{cases} \\
 ) \implies \nexists p[p = \mathbf{rev}(h)] \\
 
@@ -33,51 +33,6 @@ h = \Sigma_{i=2}^{lp}
 \end{multline}
 \end{flushleft}
 $$
-
-So let's split each sub steps of the algorithm. In this wayt, we could start prooving that if $ P \implies Q $ and if $ Q \implies R $ then $ P \implies R $
-
-So for any P so that:
-
-$$
-\begin{flushleft}
-\begin{multline}
-\[
-
-h = \Sigma_{i=2}^{lp}
-\begin{cases}
-    (p_{i} \oplus hp_{i+8} \land 0xfffffff0 < 0xa0)        \text{ if } i \equiv 0 \pmod 2 \\
-    (p_{i} \oplus hp_{i+8} \land 0xfffffff0 \geq 0xa0)     \text{ if } i \equiv 0 \pmod 2 \\
-    (p_{i} \oplus hp_{i+8} \land 0xf < 0x0a)               \text{ if } i \equiv 1 \pmod 2 \\
-    (p_{i} \oplus hp_{i+8} \land 0xf \geq 0x0a)            \text{ if } i \equiv 1 \pmod 2
-\end{cases} \\
-) \implies \nexists p[p = \mathbf{rev}(h)] \\
-
-\]
-\end{multline}
-\end{flushleft}
-$$
-
-
-So for any Q so that:
-
-$$
-\begin{flushleft}
-\begin{multline}
-\[
-
-h = \Sigma_{i=2}^{lp}
-\begin{cases}
-    (p_{i} \oplus hp_{i+8} \land 0xfffffff0 < 0xa0),                 \text{ if } i \equiv 0 \pmod 2 \\
-    (p_{i} \oplus hp_{i+8} \land 0xfffffff0 \geq 0xa0)               \text{ if } i \equiv 0 \pmod 2 \\
-    (p_{i} \oplus hp_{i+8} \land 0xf < 0x0a),                        \text{ if } i \equiv 1 \pmod 2 \\
-    (p_{i} \oplus hp_{i+8} \land 0xf \geq 0x0a),                     \text{ if } i \equiv 1 \pmod 2
-\end{cases} \\
-) \implies \forall p[p = \mathbf{rev}(h)] \\
-\]
-\end{multline}
-\end{flushleft}\\
-$$
-
 
 Let's start by prooving 
 
@@ -92,10 +47,10 @@ h_{0} = 0, \\
 h_{1} = 8, \\
 h = \Sigma_{i=2}^{lp}
 \begin{cases}
-    ((p_i \oplus hp_{8 + i}) \ggg 4) + 0x30,                                   & \text{if } (p_{i} \oplus hp_{i+8} \land 0xfffffff0 < 0xa0)        \text{ and if } i \equiv 0 \pmod 2 \\
-    ((p_i \oplus hp_{8 + i}) \ggg 4) + 0x37,                                   & \text{if } (p_{i} \oplus hp_{i+8} \land 0xfffffff0 \geq 0xa0)     \text{ and if } i \equiv 0 \pmod 2 \\
-    ((p_i \oplus hp_{8 + i}) \land 0xf) + 0x30,                               & \text{if } (p_{i} \oplus hp_{i+8} \land 0xf < 0x0a)               \text{ and if } i \equiv 1 \pmod 2 \\
-    ((p_i \oplus hp_{8 + i}) \land 0xf) + 0x37,                               & \text{if } (p_{i} \oplus hp_{i+8} \land 0xf \geq 0x0a)            \text{ and if } i \equiv 1 \pmod 2
+    ((p_i \oplus hp_{8 + i}) \ggg 4) + 0x30,                                  & \text{if } (h_{i} \oplus hp_{i+8} \land 0xfffffff0 < 0xa0)        \text{ and if } i \equiv 0 \pmod 2 \\
+    ((p_i \oplus hp_{8 + i}) \ggg 4) + 0x37,                                  & \text{if } (h_{i} \oplus hp_{i+8} \land 0xfffffff0 \geq 0xa0)     \text{ and if } i \equiv 0 \pmod 2 \\
+    ((p_i \oplus hp_{8 + i}) \land 0xf) + 0x30,                               & \text{if } (h_{i} \oplus hp_{i+8} \land 0xf < 0x0a)               \text{ and if } i \equiv 1 \pmod 2 \\
+    ((p_i \oplus hp_{8 + i}) \land 0xf) + 0x37,                               & \text{if } (h_{i} \oplus hp_{i+8} \land 0xf \geq 0x0a)            \text{ and if } i \equiv 1 \pmod 2
 \end{cases} \\
 ) \implies \nexists p[p = \mathbf{rev}(h)] \\
 
@@ -110,7 +65,7 @@ $\forall x [(x = y + z) \implies (y = e \minus z)]$ then it follow that as the p
 
 ## II/ exclusive or
 
-According to the Karnaught table at: https://fr.wikipedia.org/wiki/Table_de_v%C3%A9rit%C3%A9#Disjonction_exclusive, $ \forall x [(x \oplus x) \implies (x = 0)] $.
+According to the boolean algebra about the exclusive logical or operation, $ \forall x [(x \oplus x) \implies (x = 0)] $.
 $$
 \\
 $$
@@ -149,34 +104,33 @@ $ x \in { x | (0x0f & x) > 0x0a } \implies y = x + 0x37 $ $\\$
 first byte: \\
   $ 0xa0 < 0xf0 + 0x30 < y \\ $ 
   then:\\
-  -1: $ x \in { x | 0xa0 < x } \implies [y \in { y | 0xc7 < y < 0xa7 }] \\$
-  -2: $ x \in { x | x < 0xa0 } \implies [y \in { y | 0xc0 < y < }] \\$
+  -1: $ \forall y \in H(x), x \in { x | 0xa0 < x } \implies [y \in { y | 0x00 < y < 0xa7 }] \\$
+  -2: $ \forall y \in H(x), x \in { x | x < 0xa0 } \implies [y \in { y | 0xc0 < y }] \\$
 
 second byte:
   $ 0xa0 < 0x0f + 0x30 < y \\ $ 
-  -1: $ x \in { x | x < 0x0a } \implies [y \in { y | 0x3a < y }] \\$
-  -2: $ x \in { x | 0x0a < x } \implies [y \in { y | y < 0x4a }] \\$
+  -1: $ \forall y \in H(x), x \in { x | x < 0x0a } \implies [y \in { y | 0x3a < y }] \\$
+  -2: $ \forall y \in H(x), x \in { x | 0x0a < x } \implies [y \in { y | y < 0x4a }] \\$
 
 
 Then for both of any subnumber:
 
-$ \forall y = H(x), x \in { x | x \leq 0xa } \implies y = x + 0x30$ $\\$
+$ \forall y = H(x), x \in { x | x \leq 0xa } \implies y = x + 0x30 $ $\\$
 $ \forall y = H(x), x \in { x | x > 0xa } \implies y = x + 0x37 $ $\\$
 
 It follows:
 
-$ \forall y = H(x), y \in { y | 0 < y \leq 0xa + 0x30 } \implies x = y - 0x30 $ then $ 0 < x < 0xa $ $\\$
-$ \forall y = H(x), y \in { y | 0 < y \leq 0xa + 0x37 } \implies x = y - 0x30 $ then $ 0xa < x < 0x13 $ $\\$
+$ \forall y = H(x), y \in { y | 0 < y \leq 0x0a + 0x30 } \implies x = y - 0x30 $ then $ 0 < x < 0x0a $ $\\$
+$ \forall y = H(x), y \in { y | 0 < y \leq 0x0a + 0x37 } \implies x = y - 0x30 $ then $ 0x0a \leq x $ $\\$
 
 # V /communtativity:
 
-Addition, substraction and $ \oplus $ are commutative. \\ \\
+Addition, substraction and $ \oplus $ are commutative. \\
 
 # VI / proof
 
 Then we have already proven each piece of the theorem so that:
-
-$hp = (d, s, f, d, ;, k, f, o, A, ,, ., i, y, e, w, r, k, l, d, J, K, D, H, S, U, B, s, g, v, c, a, 6, 9, 8, 3, 4, n, c, x , v) \implies (\forall x \in hp[0 \geq x 0 \geq 256 \implies x \in hp]) $
+$hp = (d, s, f, d, ;, k, f, o, A, ,, ., i, y, e, w, r, k, l, d, J, K, D, H, S, U, B, s, g, v, c, a, 6, 9, 8, 3, 4, n, c, x , v) \implies (\forall x \in hp[0 \geq x 0 \geq 256 \implies x \in hp]) $ \\
 
 then:
 
@@ -198,15 +152,15 @@ h_{0} = 0, \\
 h_{1} = 8, \\
 h = \Sigma_{i=2}^{lp}
 \begin{cases}
-    (((p_{i} \oplus hp_{i+8}) \lll 4) - 0x30),                               & \text{if } p_i < 0xa0             \text{ and if } i \equiv 0 \pmod 2 \\
-    (((p_{i} \oplus hp_{i+8}) \lll 4) - 0x37),                               & \text{if } p_i \geq 0x0a0         \text{ and if } i \equiv 0 \pmod 2 \\
-    (((p_{i} \oplus hp_{i+8}) \land 0xffffffff0) - 0x30),                    & \text{if } p_i < 0x0a             \text{ and if } i \equiv 1 \pmod 2 \\
-    (((p_{i} \oplus hp_{i+8}) \land 0xffffffff0) - 0x37),                    & \text{if } p_i \geq 0x0a          \text{ and if } i \equiv 1 \pmod 2
+    (((p_{i} \oplus hp_{i+8}) \lll 4) - 0x30),                               & \text{if } h_i < 0xa0             \text{ and if } i \equiv 0 \pmod 2 \\
+    (((p_{i} \oplus hp_{i+8}) \lll 4) - 0x37),                               & \text{if } h_i \geq 0xa0          \text{ and if } i \equiv 0 \pmod 2 \\
+    (((p_{i} \oplus hp_{i+8}) \land 0xffffffff0) - 0x30),                    & \text{if } h_i < 0x0a             \text{ and if } i \equiv 1 \pmod 2 \\
+    (((p_{i} \oplus hp_{i+8}) \land 0xffffffff0) - 0x37),                    & \text{if } h_i \geq 0x0a          \text{ and if } i \equiv 1 \pmod 2
 \end{cases} \\
 ) \implies \forall p[p = \mathbf{rev}(h)] \\
 
 \]
-\end{flushleft}
-\end{multline}\\
+\end{multline}
+\end{flushleft}\\
 $$
 \end{document}
