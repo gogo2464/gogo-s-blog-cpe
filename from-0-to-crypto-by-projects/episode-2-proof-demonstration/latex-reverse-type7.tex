@@ -27,8 +27,7 @@ h = \Sigma_{i=2}^{lp}
     ((p_i \oplus hp_{8 + i}) \land 0xf) + 0x30,                                & \text{if } (h_{i} \oplus hp_{i+8} \land 0xf < 0x0a)               \text{ and if } i \equiv 1 \pmod 2 \\
     ((p_i \oplus hp_{8 + i}) \land 0xf) + 0x37,                                & \text{if } (h_{i} \oplus hp_{i+8} \land 0xf \geq 0x0a)            \text{ and if } i \equiv 1 \pmod 2
 \end{cases} \\
-) \implies \nexists p[p = \mathbf{rev}(h)] \\
-
+) \implies \nexists p[p = \mathbf{rev}(h)]
 \]
 \end{multline}
 \end{flushleft}
@@ -85,9 +84,9 @@ $$
 
 In the previous chapter one `I/ substraction to reverse the addition`, we told we can reverse the previous addition. We still need to guess which addition/substraction has been done previously.
 
-As both addition values are made depending of: \\
-if $ (password_left & 0xf0 < 0xa0) \implies (password_left & 0xf0 + 0x30) $ or else $ (password_left & 0xf0 > 0xa0) \implies (password_left & 0xf0 + 0x37)  \\ $
-if $ (password_right & 0x0f < 0x0a) \implies (password_right & 0x0f + 0x30)$ or else $ (password_right & 0x0f > 0xa0) \implies (password_right & 0x0f + 0x37) \\ $
+As both addition values are made depending to: \\
+if $ (p_l \land 0xf0 < 0xa0) \implies (p_l \land 0xf0 + 0x30) $ or else $ (p_l \land 0xf0 > 0xa0) \implies (p_l \land 0xf0 + 0x37)  \\ $ \\
+if $ (p_r \land 0x0f < 0x0a) \implies (p_r \land 0x0f + 0x30)$ or else $ (p_r \land 0x0f > 0xa0) \implies (p_r \land 0x0f + 0x37) \\ $
 
 So if the out has the 4 four bits value so that: 
 $ x \in { x | (0xf0 & x) \leq 0xa0 } \implies y = x + 0x30 $ $\\$
