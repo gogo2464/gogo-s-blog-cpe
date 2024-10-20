@@ -7,6 +7,8 @@ draft: false
 
 ## I - Identify
 
+In a previous [article](https://gogo2464.github.io/gogo-s-blog-cpe/from-0-to-buffer-overflow-by-projects/episode-2-guessing-source-code-reverse-engineering-program/), I read the source code of a program from the executable. The goal of this new article is to audit the logic behind the math algorithm that supposed to avoid to make someone reverse the modification of the password. The password modification algorithm provided by the previous article work is available at this [url](https://codeberg.org/gogo/viegenere-cisco-proprietary-algorythm-decompiled-from-packet-tracer).
+
 According to the documentation and as it is mentionned that type 7 is an hashing algorithm.
 
 A secure hash algorithm is an hash algorithm so that for any function hash that transform the original (plaintext) value $ hased = H(plain) $ there does not exist a function $ rev(hashed) $ so that $ rev(hashed) = plain $. 
