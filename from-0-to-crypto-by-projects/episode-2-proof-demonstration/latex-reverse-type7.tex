@@ -64,28 +64,21 @@ $\forall x [(x = y + z) \implies (y = e \minus z)]$ then it follow that as the p
 
 ## II/ exclusive or
 
-According to the boolean algebra about the exclusive logical or operation, $ \forall x [(x \oplus x) \implies (x = 0)] $.
-$$
-\\
-$$
-Then as $ xlat \oplus xlat = 0 $, and as $ p \oplus 0 = p $, we know that the original password $p = xlat \oplus h $. $\\$
+According to the boolean algebra about the exclusive logical or operation, $ \forall x [y = (x \oplus x) \implies (y = 0)] $. $ \\ $
+Then as $ xlat \oplus xlat = 0 $, and as $ p \oplus 0 = p $, we know that the original password $p = (xlat \oplus h)$. $ \\ $
 
 ## III/ rotating 4 first to 4 last bits
 
-$ \forall x [(x \ggg y) \implies (x \lll y = x)] $. \\
+$ \forall x [(x \ggg y) \implies (x \lll y = x)] $.
 
-Then as $z = (x \ggg y) = (x \lll y) $, we know that the original password $ p = H(p) \lll 4 $.
-$$
-\\
-\\
-$$
+Then as $z = (x \ggg y) = (x \lll y) $, we know that the original password $ p = H(p) \lll 4 $. $ \\ $
 
-## IV/ unmasking different signatures (recurrent marks) in the hash
+## IV/ unmasking different signatures (recurrent marks) in the password modification
 
-In the previous chapter one `I/ substraction to reverse the addition`, we told we can reverse the previous addition. We still need to guess which addition/substraction has been done previously.
+In the previous chapter one `I/ substraction to reverse the addition`, we told we can reverse the previous addition. We still need to guess which addition/substraction has been done previously. $ \\ $
 
-As both addition values are made depending to: \\
-if $ (p_l \land 0xf0 < 0xa0) \implies (p_l \land 0xf0 + 0x30) $ or else $ (p_l \land 0xf0 > 0xa0) \implies (p_l \land 0xf0 + 0x37)  \\ $ \\
+As both addition values are made depending to:
+if $ (p_l \land 0xf0 < 0xa0) \implies (p_l \land 0xf0 + 0x30) $ or else $ (p_l \land 0xf0 > 0xa0) \implies (p_l \land 0xf0 + 0x37) \\ $
 if $ (p_r \land 0x0f < 0x0a) \implies (p_r \land 0x0f + 0x30)$ or else $ (p_r \land 0x0f > 0xa0) \implies (p_r \land 0x0f + 0x37) \\ $
 
 So if the out has the 4 four bits value so that: 
@@ -102,26 +95,22 @@ $ x \in { x | (0x0f & x) > 0x0a } \implies y = x + 0x37 $ $\\$
 
 first byte: \\
   as $ 0xa0 < 0xf0 + 0x30 < y \\ $ 
-  -1: $ \forall y \in H(x), x \in { x | 0xa0 < x } \implies [y \in { y | 0x00 < y < 0xa7 }] \\$
-  -2: $ \forall y \in H(x), x \in { x | x < 0xa0 } \implies [y \in { y | 0xc0 < y }] \\$
+  -1: $ \forall y \in H(x)[(x \in \{ x | 0xa0 < x \}) \implies (y \in \{y | 0x00 < y < 0xa7\})] \\$
+  -2: $ \forall y \in H(x)[(x \in \{ x | x < 0xa0 \}) \implies (y \in \{ y | 0xc0 < y\})] \\$
 
 second byte:
   as $ 0xa0 < 0x0f + 0x30 < y \\ $ 
-  -1: $ \forall y \in H(x), x \in { x | x < 0x0a } \implies [y \in { y | 0x3a < y }] \\$
-  -2: $ \forall y \in H(x), x \in { x | 0x0a < x } \implies [y \in { y | y < 0x4a }] \\$
+  -1: $ \forall y \in H(x)[(x \in \{ x | x < 0x0a \}) \implies (y \in \{y | 0x3a < y\})] \\$
+  -2: $ \forall y \in H(x)[(x \in \{ x | 0x0a < x \}) \implies (y \in \{y | y < 0x4a\})] \\$
 
 
 Then for both of any subnumber:
+that $ \forall y = H(x), x \in \{ x | x \leq 0xa \} \implies y = x + 0x30 \\$
+and that $ \forall y = H(x), x \in \{ x | x > 0xa \} \implies y = x + 0x37 \\$
 
-$ \forall y = H(x), x \in { x | x \leq 0xa } \implies y = x + 0x30 $ $\\$
-
-$ \forall y = H(x), x \in { x | x > 0xa } \implies y = x + 0x37 $ $\\$
-
-It follows:
-
-$ \forall y = H(x), y \in { y | 0 < y \leq 0x0a + 0x30 } \implies x = y - 0x30 $ then $ 0 < x < 0x0a $ $\\$
-
-$ \forall y = H(x), y \in { y | 0 < y \leq 0x0a + 0x37 } \implies x = y - 0x30 $ then $ 0x0a \leq x $ $\\$
+It follows: \\
+that $ \forall y = H(x)[(y \in \{ y | 0 < y \leq 0x0a + 0x30 \}) \implies (x = y - 0x30)] $ then $ 0 < x < 0x0a $ \\
+and that $ \forall y = H(x)[(y \in \{ y | 0 < y \leq 0x0a + 0x37 \}) \implies (x = y - 0x30)] $ then $ 0x0a \leq x $ $\\$
 
 # V /communtativity:
 
