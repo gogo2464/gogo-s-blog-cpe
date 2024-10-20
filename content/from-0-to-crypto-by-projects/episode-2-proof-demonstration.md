@@ -25,7 +25,7 @@ We could then guess that the researchers thanks then that:
 
 ![image](/gogo-s-blog-cpe/from-0-to-crypto-by-projects/episode-2-proof-demonstration/theory-behind-type7-hash.png)
 
-The question is to proove that there exists a function $ rev(hashed) $ so that $ \forall plain [rev(H(plain)) = plain] $ then $ \forall x [x = H(plain)] $
+The question is to proove that there exists a function $ rev(hashed) $ so that $ \forall plain [rev(H(plain)) = plain] $.
 
 
 ## IV/ 1- solving the theorem finding a way to proove the case.
@@ -40,8 +40,17 @@ There a serveral various operations including:
 - doing an boolean exclusive logical or to a known password. 
   -  as each number exclusively logically set to logical or (xored) with itself has the final value of 0 and as 0 set to logical or with another number will return this number, ![image](/gogo-s-blog-cpe/from-0-to-crypto-by-projects/episode-2-proof-demonstration/reversing-exclusive-or.png) it follows that logically set to logical or to the hardcoded password one time will change the values but logically set to logical or a second time to the same hardcoded value will change it to the original value. See [boolean algebra](https://en.wikipedia.org/wiki/Exclusive_or#Definition), and see this schems provided with the tool name `cryptool-2`.
 
-All of these are reversables.
+All of these are equivalent to another operation.
 
-Then I decide to choose a proof in the form: as $ A \implies B \implies C $, then $ A \implies C $.
+Then I decide to choose a proof in the form:
+
+as: $ \forall h \in N[(h = p + x) \implies (p = h - x)] $
+
+and as: $ \forall h \in N[(h = p \oplus x) \implies (p = h \oplus x)] $
+
+and as:
+$ \forall h \in N[(h = p \ggg x) \implies (p = h \lll x)] $
+
+then, for any h in N, $ p = (h - x_1 \oplus x_2 \lll x_3) $.
 
 Let's check it out that [in this paper]( /gogo-s-blog-cpe/from-0-to-crypto-by-projects/episode-2-proof-demonstration/latex-reverse-type7.pdf )!
