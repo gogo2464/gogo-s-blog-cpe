@@ -101,13 +101,12 @@ So if the out has the 4 four first bits value so that:
 $ x \in { x | (0x0f & x) > 0x0a } \implies y = x + 0x37 $ $\\$
 
 first byte: \\
-  $ 0xa0 < 0xf0 + 0x30 < y \\ $ 
-  then:\\
+  as $ 0xa0 < 0xf0 + 0x30 < y \\ $ 
   -1: $ \forall y \in H(x), x \in { x | 0xa0 < x } \implies [y \in { y | 0x00 < y < 0xa7 }] \\$
   -2: $ \forall y \in H(x), x \in { x | x < 0xa0 } \implies [y \in { y | 0xc0 < y }] \\$
 
 second byte:
-  $ 0xa0 < 0x0f + 0x30 < y \\ $ 
+  as $ 0xa0 < 0x0f + 0x30 < y \\ $ 
   -1: $ \forall y \in H(x), x \in { x | x < 0x0a } \implies [y \in { y | 0x3a < y }] \\$
   -2: $ \forall y \in H(x), x \in { x | 0x0a < x } \implies [y \in { y | y < 0x4a }] \\$
 
@@ -115,16 +114,18 @@ second byte:
 Then for both of any subnumber:
 
 $ \forall y = H(x), x \in { x | x \leq 0xa } \implies y = x + 0x30 $ $\\$
+
 $ \forall y = H(x), x \in { x | x > 0xa } \implies y = x + 0x37 $ $\\$
 
 It follows:
 
 $ \forall y = H(x), y \in { y | 0 < y \leq 0x0a + 0x30 } \implies x = y - 0x30 $ then $ 0 < x < 0x0a $ $\\$
+
 $ \forall y = H(x), y \in { y | 0 < y \leq 0x0a + 0x37 } \implies x = y - 0x30 $ then $ 0x0a \leq x $ $\\$
 
 # V /communtativity:
 
-Addition, substraction and $ \oplus $ are commutative. \\
+Addition, substraction and $ \oplus $ are commutative. $ \\ $
 
 # VI / proof
 
